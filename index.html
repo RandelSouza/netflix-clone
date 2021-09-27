@@ -5,11 +5,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!--OWL CSS-->
+    <link rel="stylesheet" href="css/owl/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl/owl.theme.default.min.css">
+
+    <!--RESPONSIVE CSS-->
+    <link rel="stylesheet" href="./css/responsive.css">
+
+    <title>NETFLIX CLONE</title>
 </head>
 
 <body>
+    <header>
+        <div class="container">
+            <h2 class="logo">NETFLIX</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Séries</a></li>
+                    <li><a href="#">Filmes</a></li>
+                    <li><a href="#">Documentários</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <div class="main">
+        <div class="main-movie">
+            <div class="container">
+                <h3 class="title">Shang-Chi e a Lenda dos Dez Anéis</h3>
+                <p class="description">
+                    Shang-Chi precisa confrontar o passado que pensou ter deixado para trás.
+                    Ao mesmo tempo, ele é envolvido em uma teia de mistérios da organização conhecida como Dez Anéis.
+                </p>
+
+                <div class="title-btns">
+                    <button class="btn" type="button" role="button"><i class="fas fa-play"></i>ASSISTIR AGORA</button>
+                    <button class="btn" type="button" role="button"><i class="fas fa-info-circle"></i>MAIS
+                        INFORMAÇÕES</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carrosel-movies">
+        <div class="owl-carousel owl-theme loop">
+            <div class="item">
+                <img class="box-movie one" src="img/yugiohback.jpg" alt="miniatura 1">
+            </div>
+
+            <div class="item">
+                <img class="box-movie two" src="img/yugiohback.jpg" alt="miniatura 2">
+            </div>
+
+            <div class="item">
+                <img class="box-movie three" src="img/yugiohback.jpg" alt="miniatura 3">
+            </div>
+
+            <div class="item">
+                <img class="box-movie four" src="img/yugiohback.jpg" alt="miniatura 4">
+            </div>
+
+            <div class="item">
+                <img class="box-movie five" src="img/yugiohback.jpg" alt="miniatura 5">
+            </div>
+
+            <div class="item">
+                <img class="box-movie six" src="img/yugiohback.jpg" alt="miniatura 6">
+            </div>
+
+            <div class="item">
+                <img class="box-movie seven" src="img/yugiohback.jpg" alt="miniatura 7">
+            </div>
+
+            <div class="item">
+                <img class="box-movie eigth" src="img/yugiohback.jpg" alt="miniatura 8">
+            </div>
+
+        </div>
+        
+    </div>
+
+    <script src="https://kit.fontawesome.com/252ebfa745.js" crossorigin="anonymous"></script>
+
+    <!--OWL SCRIPTS-->
+    <script type="text/javascript" src="js/fetch.js"></script>
+    <script type="text/javascript" src="js/owl/jquery.min.js"></script>
+    <script type="text/javascript" src="js/owl/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+ 
 </body>
 
 </html>
