@@ -142,5 +142,5 @@ carousel.owlCarousel({
  * 1) Achar uma forma de inserir 5 elementos ao carousel após a inicialização. [x]
  * permitindo que as imagens sejam carregadas.
  *
- * 2) Testar o segunco carousel com imagem de outro-race.
+ * 2) Testar o segundo carousel com imagem de outro-race.
  */
