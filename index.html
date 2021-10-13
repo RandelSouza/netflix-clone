@@ -5,22 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
 
     <!--OWL CSS-->
-    <link rel="stylesheet" href="css/owl/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/owl.theme.default.min.css">
+
+    <!--ANIMATE CSS-->
+    <link rel="stylesheet" type="text/css" href="./css/animate.css" />
 
     <!--RESPONSIVE CSS-->
-    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="./css/responsive.css">
 
-    <title>NETFLIX CLONE</title>
+    <!--NETFLIX LOGO-->
+    <link rel="stylesheet" type="text/css" href="css/netflix-logo.css">
+    <title>YU-GI-OH CARD GAME</title>
+
+    <!--STYLE CSS-->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h2 class="logo">NETFLIX</h2>
+            <h2 class="logo">
+                <a href="https://fontmeme.com/fonts/bebas-neue-font/">
+                    <img src="https://fontmeme.com/permalink/211007/644ff9a2afd9b47c61fd748e54d4fb7e.png"
+                        alt="bebas-neue-font" border="0">
+                </a>
+            </h2>
+
             <nav>
                 <ul>
                     <li><a href="#">Início</a></li>
@@ -29,64 +43,131 @@
                     <li><a href="#">Documentários</a></li>
                 </ul>
             </nav>
+
         </div>
     </header>
 
     <div class="main">
         <div class="main-movie">
             <div class="container">
-                <h3 class="title">Shang-Chi e a Lenda dos Dez Anéis</h3>
+                <h3 class="title">Yu-Gi-Oh! List of Cards Game!</h3>
                 <p class="description">
-                    Shang-Chi precisa confrontar o passado que pensou ter deixado para trás.
-                    Ao mesmo tempo, ele é envolvido em uma teia de mistérios da organização conhecida como Dez Anéis.
+                    A série de mangá e anime Yu-Gi-Oh! introduz o jogo de cartas colecionáveis originalmente criado por
+                    Kazuki Takahashi, desenvolvido e publicado pela Konami. O jogo começou a ser produzido em 1998, e
+                    hoje é jogado no mundo inteiro.
                 </p>
 
                 <div class="title-btns">
-                    <button class="btn" type="button" role="button"><i class="fas fa-play"></i>ASSISTIR AGORA</button>
-                    <button class="btn" type="button" role="button"><i class="fas fa-info-circle"></i>MAIS
-                        INFORMAÇÕES</button>
+                    <button class="btn" id="assistir-agora" type="button" role="button">
+                        <i class="fas fa-play"></i>
+                        ASSISTIR AGORA
+                    </button>
+                    <button class="btn" id="ver-mais" type="button" role="button">
+                        <i class="fas fa-info-circle"></i>
+                        MAIS INFORMAÇÕES
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="carrosel-movies">
-        <div class="owl-carousel owl-theme loop">
-            <div class="item">
-                <img class="box-movie one" src="img/yugiohback.jpg" alt="miniatura 1">
+    <div class="carousel-movies">
+        <h2 class="info-corousel">Destaques</h2>
+
+        <div id="carousel" class="owl-carousel owl-theme loop">
+
+            <!--div class="item box-movie animate__animated animate__flipInY">
+                <img class="box-movie owl-lazy"
+                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/87746184.jpg" alt="">
             </div>
 
-            <div class="item">
-                <img class="box-movie two" src="img/yugiohback.jpg" alt="miniatura 2">
+            <div class="item box-movie animate__animated animate__flipInY">
+                <img class="box-movie owl-lazy"
+                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/25451383.jpg" alt="">
             </div>
 
-            <div class="item">
-                <img class="box-movie three" src="img/yugiohback.jpg" alt="miniatura 3">
+            <div class="item box-movie animate__animated animate__flipInY">
+                <img class="box-movie owl-lazy"
+                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/2411269.jpg" alt="">
             </div>
 
-            <div class="item">
-                <img class="box-movie four" src="img/yugiohback.jpg" alt="miniatura 4">
-            </div>
-
-            <div class="item">
-                <img class="box-movie five" src="img/yugiohback.jpg" alt="miniatura 5">
-            </div>
-
-            <div class="item">
-                <img class="box-movie six" src="img/yugiohback.jpg" alt="miniatura 6">
-            </div>
-
-            <div class="item">
-                <img class="box-movie seven" src="img/yugiohback.jpg" alt="miniatura 7">
-            </div>
-
-            <div class="item">
-                <img class="box-movie eigth" src="img/yugiohback.jpg" alt="miniatura 8">
-            </div>
-
+            <div class="item box-movie animate__animated animate__flipInY">
+                <img class="box-movie owl-lazy"
+                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/28865322.jpg" alt="">
+            </div-->
         </div>
-        
+
     </div>
+
+
+    <!--div class="carrosel-movies">
+        <h2 class="info-corousel">Cards Raros</h2>
+
+        <div class="owl-carousel owl-theme owl-loaded">
+            <div class="owl-stage-outer">
+                <div id="carousel2" class="owl-stage">
+                    <div class="item box-movie animate__animated animate__flipInY">
+                        <img class="box-movie owl-lazy"
+                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/87746184.jpg" alt="">
+                    </div>
+
+                    <div class="item box-movie animate__animated animate__flipInY">
+                        <img class="box-movie owl-lazy"
+                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/25451383.jpg" alt="">
+                    </div>
+
+                    <div class="item box-movie animate__animated animate__flipInY">
+                        <img class="box-movie owl-lazy"
+                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/2411269.jpg" alt="">
+                    </div>
+
+                    <div class="item box-movie animate__animated animate__flipInY">
+                        <img class="box-movie owl-lazy"
+                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/28865322.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="owl-nav">
+                <div class="owl-prev">prev</div>
+                <div class="owl-next">next</div>
+            </div>
+            <div class="owl-dots">
+                <div class="owl-dot active"><span></span></div>
+                <div class="owl-dot"><span></span></div>
+                <div class="owl-dot"><span></span></div>
+            </div>
+        </div-->
+
+        <!--div id="carousel2" class="owl-carousel owl-theme loop owl-loading">
+
+            <div class="item carousel-part-2">
+            </div>
+
+            <div class="item carousel-part-2">
+            </div>
+
+            <div class="item carousel-part-2">
+            </div>
+
+            <div class="item carousel-part-2">
+            </div>
+
+            <div class="item carousel-part-2">
+            </div>
+
+            <div class="item carousel-part-2">
+            </div>
+
+            <div class="item carousel-part-2">
+            </div>
+
+            <div class="item carousel-part-2">
+            </div>
+
+        </div-->
+
+    </div>
+
 
     <script src="https://kit.fontawesome.com/252ebfa745.js" crossorigin="anonymous"></script>
 
@@ -94,8 +175,9 @@
     <script type="text/javascript" src="js/fetch.js"></script>
     <script type="text/javascript" src="js/owl/jquery.min.js"></script>
     <script type="text/javascript" src="js/owl/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
- 
+    <script type="text/javascript" src="js/main-carousel.js"></script>
+    <script type="text/javascript" src="js/main-carousel2.js"></script>
+
 </body>
 
 </html>

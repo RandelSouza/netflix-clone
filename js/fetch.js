@@ -5,43 +5,77 @@ const baseUrl = "https://db.ygoprodeck.com/api/v7/cardinfo.php";
 const getElement = document.querySelector.bind(document);
 
 let cardsYugiOh;
+let cardById;
 
-async function requestYugiohCards(url, name) {
-  await fetch(baseUrl + `?name=${name}`)
-    .then((response) => response.json())
-    .then((data) => {
-      cardsYugiOh = data;
-    })
-    .catch((error) => console.log(error));
+// Talvez seja necessário
+async function requestYugiohCardsById(idCard) {
+    await fetch(baseUrl + `?id=${idCard}`)
+        .then((response) => response.json())
+        .then((data) => {
+            cardById = data;
+        })
+        .catch((error) => console.log(error));
 }
 
+
+async function requestYugiohCards(name) {
+    await fetch(baseUrl + `?name=${name}`)
+        .then((response) => response.json())
+        .then((data) => {
+            cardsYugiOh = data;
+        })
+        .catch((error) => console.log(error));
+}
+
+
+async function requestYugiohCardsByRace(race) {
+    await fetch(baseUrl + `?race=${race}`)
+        .then((response) => response.json())
+        .then((data) => {
+            cardsYugiOh = data;
+        })
+        .catch((error) => console.log(error));
+}
+
+// As funções de requisição acima podem ser refatoradas para serem mais dinamicas
+// Ou não dependendo do proposito delas
+// é interresante pensar bem nessa organização.
+
 // Função responsavel por montar o HTML exibido na pagina
-function createCardYuGiOh() {
-  card = cardsYugiOh.data[0].card_images[0].image_url;
-  return card;
+function createCardYuGiOh(index) {
+    card = cardsYugiOh.data[index].card_images[0].image_url;
+    return card;
 }
 
 async function startApp() {
-  await requestYugiohCards(baseUrl, 'Blue-Eyes White Dragon');
-  getElement('.one').src = createCardYuGiOh();
 
-  await requestYugiohCards(baseUrl, 'Tornado Dragon');
-  getElement('.two').src = createCardYuGiOh();
+    await requestYugiohCards('Blue-Eyes White Dragon');
+    getElement('.one').src = createCardYuGiOh();
 
-  await requestYugiohCards(baseUrl, "Dark Magician");
-  getElement('.three').src = createCardYuGiOh();
+    await requestYugiohCards('Tornado Dragon');
+    getElement('.two').src = createCardYuGiOh();
 
-  await requestYugiohCards(baseUrl, "Ancient Brain");
-  getElement('.four').src = createCardYuGiOh();
-  
-  await requestYugiohCards(baseUrl, "Armored Zombie");
-  getElement('.five').src = createCardYuGiOh();
+    await requestYugiohCards("Dark Magician");
+    getElement('.three').src = createCardYuGiOh();
 
-  await requestYugiohCards(baseUrl, "Barrel Dragon");
-  getElement('.six').src = createCardYuGiOh();
+    await requestYugiohCards('Blue-Eyes White Dragon');
+    getElement('.four').src = createCardYuGiOh();
 
-  getElement('.description').innerHTML = cardsYugiOh.data[0].desc;
-  getElement('.title').innerHTML = cardsYugiOh.data[0].name
+    await requestYugiohCards('Tornado Dragon');
+    getElement('.five').src = createCardYuGiOh();
+
+    await requestYugiohCards("Dark Magician");
+    getElement('.six').src = createCardYuGiOh();
+
+    getElement('.description').innerHTML = cardsYugiOh.data[0].desc;
+    getElement('.title').innerHTML = cardsYugiOh.data[0].name
 }
 
-window.onloadstart = startApp();
+async function testeGetById(){
+    await requestYugiohCardsById(2);
+    console.log(cardById);
+}
+
+let requestRace = async (race) => {
+    await requestYugiohCardsByRace(race);
+}

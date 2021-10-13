@@ -1,25 +1,28 @@
 @import url("reset.css");
 @import url("../fonts/arial/style.css"); /*Style das fonts*/
+/*@import url("../fonts/bebas-neue/BebasNeue.otf"); Style das fonts*/
+
 
 /*ELEMENTOS BASE*/
 :root {
   --vermelho: #e50914;
-  --preta: #141414;
-  --branco: #eee;
+  --preta: #000000e8;
+  --branco: rgb(243, 240, 240);
 }
 
 body {
   background: var(--preta);
   font-family: 'Arial', Times, serif;
-  color: white;
+  color: var(--branco);
 }
 
 header .logo {
   color: var(--vermelho);
   font-family:'Arial Black';
   font-weight:normal;
-  font-size:40px;
+  font-size: 40px;
   margin-left: 5px;
+
 }
 
 header .container{
@@ -51,7 +54,7 @@ header nav ul li a:hover{
 
 .main-movie{
     font-size: 16px;
-    background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50) 100%), url("../img/Shang-Chi.jpg") no-repeat;
+    background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50) 100%), url("../img/yu-gi-oh-logo.jpg") no-repeat;
     height: 400px;
     background-size: cover;
     display: flex;
@@ -63,6 +66,7 @@ header nav ul li a:hover{
 .main-movie .description {
     margin-bottom: 40px;
     margin-top: 10px;
+    font-weight: bolder;
 }
 
 .title{
@@ -113,6 +117,55 @@ header nav ul li a:hover{
     margin-bottom: 10%;
 }
 
-.carrosel-movies{
+.carousel-movies{
     margin-top: 5px;
+}
+
+h2.info-corousel{
+    margin: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+.box-movie  {
+    /*background: url("https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/ajax-loader.gif") no-repeat center center;*/
+    background: url("../img/card-backward.png")  no-repeat center center;
+    background-size: cover;
+  }
+
+
+
+
+  
+
+  .owl-prev {
+      left: -0px;
+  }
+
+  .owl-next {
+    right: -0px;
+}
+
+.owl-prev, .owl-next{
+    position: absolute;
+    top: 35%;
+}
+
+.owl-prev span, .owl-next span{
+    border-radius: 15px;
+    font-size: 150px;
+    color: #cabebe;
+    background-color: rgba(24, 23, 23, 0.61);
+    
+}
+
+.owl-theme .owl-nav [class*="ow-"]:hover{
+    background-color: transparent;
+}
+
+.owl-prev span:hover, .owl-next span:hover{
+    color: #ffffff;
+    background-color: rgba(24, 23, 23, 0.788);
 }
