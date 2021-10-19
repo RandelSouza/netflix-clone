@@ -2,15 +2,6 @@
 let carousel2 = $('#carousel2'); // Pegando o segundo carousel
 
 
-let images2 = [ 'https://storage.googleapis.com/ygoprodeck.com/pics/33656832.jpg'
-              ,'https://storage.googleapis.com/ygoprodeck.com/pics/28776350.jpg'
-              ,'https://storage.googleapis.com/ygoprodeck.com/pics/65301952.jpg'
-              ,'https://storage.googleapis.com/ygoprodeck.com/pics/31975743.jpg'
-              ,'https://storage.googleapis.com/ygoprodeck.com/pics/56132807.jpg'
-              ,'https://storage.googleapis.com/ygoprodeck.com/pics/30603688.jpg'
-              ,'https://storage.googleapis.com/ygoprodeck.com/pics/9156135.jpg'
-              ,'https://storage.googleapis.com/ygoprodeck.com/pics/8396952.jpg'
-]
 
 carousel2.on('initialize.owl.carousel', async () => {
     console.log(`Initialized is ${document.documentElement.scrollHeight}`)
@@ -36,6 +27,8 @@ $('#assistir-agora').click(function () {
 
 carousel2.owlCarousel({
     stagePadding: 10,
+    dots: false,
+    nav: true,
     center: true,
     loop: true,
     lazyLoad: true,
@@ -46,5 +39,7 @@ carousel2.owlCarousel({
         600: {
             items: 4
         }
-    }
+    },
+    navText: ['<button id="prev2" type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>'
+             ,'<button id="next2" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>']
 });
