@@ -41,7 +41,6 @@ async function requestYugiohCardsById(idCard) {
         .catch(error => console.log(error));
 }
 
-
 async function requestYugiohCards(name) {
     await fetch(baseUrl + `?name=${name}`, options)
         .then(response => response.json()
@@ -50,7 +49,6 @@ async function requestYugiohCards(name) {
             }))
         .catch(error => console.log(error));
 }
-
 
 async function requestYugiohCardsByRace(race) {
     await fetch(baseUrl + `?race=${race}`, options)
@@ -71,34 +69,9 @@ function createCardYuGiOh(index) {
     return card;
 }
 
-function createCardYuGiOhTeste(index, nome) {
-    card = nome.data[index].card_images[0].image_url;
+function createCardYuGiOhTeste(index, arrayCards, retina=false) {
+    card = arrayCards.data[index].card_images[0].image_url;
     return card;
-}
-
-
-async function startApp() {
-
-    await requestYugiohCards('Blue-Eyes White Dragon');
-    getElement('.one').src = createCardYuGiOh();
-
-    await requestYugiohCards('Tornado Dragon');
-    getElement('.two').src = createCardYuGiOh();
-
-    await requestYugiohCards("Dark Magician");
-    getElement('.three').src = createCardYuGiOh();
-
-    await requestYugiohCards('Blue-Eyes White Dragon');
-    getElement('.four').src = createCardYuGiOh();
-
-    await requestYugiohCards('Tornado Dragon');
-    getElement('.five').src = createCardYuGiOh();
-
-    await requestYugiohCards("Dark Magician");
-    getElement('.six').src = createCardYuGiOh();
-
-    getElement('.description').innerHTML = cardsYugiOh.data[0].desc;
-    getElement('.title').innerHTML = cardsYugiOh.data[0].name
 }
 
 async function testeGetById() {

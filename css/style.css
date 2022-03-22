@@ -22,10 +22,9 @@ header .logo {
   font-weight:normal;
   font-size: 40px;
   margin-left: 5px;
-
 }
 
-header .container{
+header .container-yugioh{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,7 +50,6 @@ header nav ul li a:hover{
 }
 
 /*FILME PRINCIPAL*/
-
 .main-movie{
     font-size: 16px;
     background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50) 100%), url("../img/yu-gi-oh-logo.jpg") no-repeat;
@@ -83,6 +81,7 @@ header nav ul li a:hover{
     margin-right: 15px;
     font-size: 12px;
 }
+
 .btn:hover{
     background-color: #eee;
     color: var(--preta);
@@ -94,14 +93,13 @@ header nav ul li a:hover{
     margin-right: 8px;
 }
 
-.container{
+.container-yugioh{
    /* margin-left: 30px; */
    /* margin-right: 15px; */
    margin-left: 20px;
-
 }
 
-.main-movie  .container{
+.main-movie  .container-yugioh{
     width: 70%;
 }
 
@@ -110,7 +108,6 @@ header nav ul li a:hover{
     width: 100%;
     display: block;
     cursor: pointer;
-
 }
 
 .title-btns{
@@ -125,8 +122,7 @@ h2.info-corousel{
     margin: 10px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 20px;
-    
+    font-size: 20px;    
 }
 
 .box-movie  {
@@ -134,11 +130,6 @@ h2.info-corousel{
     background: url("../img/card-backward.png")  no-repeat center center;
     background-size: cover;
   }
-
-
-
-
-  
 
   .owl-prev {
       left: -0px;
@@ -168,4 +159,16 @@ h2.info-corousel{
 .owl-prev span:hover, .owl-next span:hover{
     color: #ffffff;
     background-color: rgba(24, 23, 23, 0.788);
+}
+
+.test-red:hover{    
+    border: 5px solid rgba(70, 67, 67, 0.883);
+    transform: scale(1);       
+    opacity: 0.7;    
+    transition: opacity 1ms ease-in-out;        
+}
+
+.test-blue {
+    border: 1px solid rgb(23, 23, 24);
+    
 }

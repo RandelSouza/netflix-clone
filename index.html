@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--OWL CSS-->
     <link rel="stylesheet" type="text/css" href="css/lib/owl.carousel.min.css">
@@ -20,27 +21,42 @@
     <link rel="stylesheet" type="text/css" href="css/netflix-logo.css">
     <title>YU-GI-OH CARD GAME</title>
 
+    <!--BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <!--STYLE CSS-->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 
+    <!--FONT AWESOME-->
+    <script src="https://kit.fontawesome.com/252ebfa745.js" crossorigin="anonymous" defer></script>
+
+  
+    <!--OWL SCRIPTS-->
+    <script type="text/javascript" src="js/fetch.js" defer></script>
+    <script type="text/javascript" src="js/owl/jquery.min.js" defer></script>
+    <script type="text/javascript" src="js/owl/owl.carousel.min.js" defer></script>
+    <script type="text/javascript" src="js/main-carousel.js" defer></script>
+    <script type="text/javascript" src="js/main-carousel2.js" defer></script>
+
+    <!--BOOTSTRAP BUNDLE JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
+    
 </head>
 
 <body>
     <header>
-        <div class="container">
+        <div class="container-yugioh">
             <h2 class="logo">
                 <a href="https://fontmeme.com/fonts/bebas-neue-font/">
-                    <img src="https://fontmeme.com/permalink/211007/644ff9a2afd9b47c61fd748e54d4fb7e.png"
-                        alt="bebas-neue-font" border="0">
+                    <!--https://fontmeme.com/netflix-font/-->
+                    <img src="./img/yugiflix-logo-2-rotate.png" alt="bebas-neue-font" border="0">
                 </a>
             </h2>
 
             <nav>
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Séries</a></li>
-                    <li><a href="#">Filmes</a></li>
-                    <li><a href="#">Documentários</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Cards</a></li>                    
                 </ul>
             </nav>
 
@@ -49,9 +65,9 @@
 
     <div class="main">
         <div class="main-movie">
-            <div class="container">
-                <h3 class="title">Yu-Gi-Oh! List of Cards Game!</h3>
-                <p class="description">
+            <div class="container-yugioh">
+                <h3 class="title">Yu-Gi-Oh! Lista de Cartas do Jogo!</h3>
+                <p class="description h6">
                     A série de mangá e anime Yu-Gi-Oh! introduz o jogo de cartas colecionáveis originalmente criado por
                     Kazuki Takahashi, desenvolvido e publicado pela Konami. O jogo começou a ser produzido em 1998, e
                     hoje é jogado no mundo inteiro.
@@ -60,7 +76,7 @@
                 <div class="title-btns">
                     <button class="btn" id="assistir-agora" type="button" role="button">
                         <i class="fas fa-play"></i>
-                        ASSISTIR AGORA
+                        OPÇÔES
                     </button>
                     <button class="btn" id="ver-mais" type="button" role="button">
                         <i class="fas fa-info-circle"></i>
@@ -72,140 +88,16 @@
     </div>
 
     <div class="carousel-movies">
-        <h2 class="info-corousel">Destaques</h2>
-
+        <h2 class="info-corousel">&Aacute;gua</h2>
         <div id="carousel" class="owl-carousel owl-theme loop">
-
-            <!--div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/87746184.jpg" alt="">
-            </div>
-
-            <div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/25451383.jpg" alt="">
-            </div>
-
-            <div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/2411269.jpg" alt="">
-            </div>
-
-            <div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/28865322.jpg" alt="">
-            </div-->
         </div>
-
     </div>
-
 
     <div class="carousel-movies">
-        <h2 class="info-corousel">Plant</h2>
-
+        <h2 class="info-corousel">Planta</h2>
         <div id="carousel2" class="owl-carousel owl-theme loop">
-
-            <!--div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/87746184.jpg" alt="">
-            </div>
-
-            <div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/25451383.jpg" alt="">
-            </div>
-
-            <div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/2411269.jpg" alt="">
-            </div>
-
-            <div class="item box-movie animate__animated animate__flipInY">
-                <img class="box-movie owl-lazy"
-                    data-src="https://storage.googleapis.com/ygoprodeck.com/pics/28865322.jpg" alt="">
-            </div-->
         </div>
-
     </div>
-
-    <!--div class="carrosel-movies">
-        <h2 class="info-corousel">Cards Raros</h2>
-
-        <div class="owl-carousel owl-theme owl-loaded">
-            <div class="owl-stage-outer">
-                <div id="carousel2" class="owl-stage">
-                    <div class="item box-movie animate__animated animate__flipInY">
-                        <img class="box-movie owl-lazy"
-                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/87746184.jpg" alt="">
-                    </div>
-
-                    <div class="item box-movie animate__animated animate__flipInY">
-                        <img class="box-movie owl-lazy"
-                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/25451383.jpg" alt="">
-                    </div>
-
-                    <div class="item box-movie animate__animated animate__flipInY">
-                        <img class="box-movie owl-lazy"
-                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/2411269.jpg" alt="">
-                    </div>
-
-                    <div class="item box-movie animate__animated animate__flipInY">
-                        <img class="box-movie owl-lazy"
-                            data-src="https://storage.googleapis.com/ygoprodeck.com/pics/28865322.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="owl-nav">
-                <div class="owl-prev">prev</div>
-                <div class="owl-next">next</div>
-            </div>
-            <div class="owl-dots">
-                <div class="owl-dot active"><span></span></div>
-                <div class="owl-dot"><span></span></div>
-                <div class="owl-dot"><span></span></div>
-            </div>
-        </div-->
-
-        <!--div id="carousel2" class="owl-carousel owl-theme loop owl-loading">
-
-            <div class="item carousel-part-2">
-            </div>
-
-            <div class="item carousel-part-2">
-            </div>
-
-            <div class="item carousel-part-2">
-            </div>
-
-            <div class="item carousel-part-2">
-            </div>
-
-            <div class="item carousel-part-2">
-            </div>
-
-            <div class="item carousel-part-2">
-            </div>
-
-            <div class="item carousel-part-2">
-            </div>
-
-            <div class="item carousel-part-2">
-            </div>
-
-        </div-->
-
-    </div>
-
-
-    <script src="https://kit.fontawesome.com/252ebfa745.js" crossorigin="anonymous"></script>
-
-    <!--OWL SCRIPTS-->
-    <script type="text/javascript" src="js/fetch.js"></script>
-    <script type="text/javascript" src="js/owl/jquery.min.js"></script>
-    <script type="text/javascript" src="js/owl/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="js/main-carousel.js"></script>
-    <script type="text/javascript" src="js/main-carousel2.js"></script>
 
 </body>
-
 </html>
