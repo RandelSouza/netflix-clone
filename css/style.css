@@ -164,11 +164,48 @@ h2.info-corousel{
 .test-red:hover{    
     border: 5px solid rgba(70, 67, 67, 0.883);
     transform: scale(1);       
-    opacity: 0.7;    
-    transition: opacity 1ms ease-in-out;        
+    opacity: 0.85;    
+    transition: opacity 1ms ease-in-out;
+
+}
+
+.dois {
+    line-height:0; /* correção para IE (arg!) */
+    width:0;
+    height:0;
+    border: 50px solid;
+    border-color: #f00 #0f0 #0f0 #fc0;
+    background-color:#dba4a4;
 }
 
 .test-blue {
     border: 1px solid rgb(23, 23, 24);
     
 }
+
+
+
+.item a{
+    display:none;
+    position:absolute;
+    top:30%;
+    left:25%;
+    width:50%;
+    height:25%;   
+    color:#e6e7ec;
+    text-decoration:none;
+    text-align:center;
+    font-size:100%;
+    line-height:100%;
+    font-weight: bold;
+    
+    }
+  
+.item:hover a{
+    display:block;
+ }
+
+ .item a img {
+     width: 100%;
+     height: 100%;
+ }

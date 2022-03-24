@@ -29,7 +29,7 @@ const generateInitialCards = (carrousel, index, numberCards) => {
     for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {      
         let cardElement = ['<div class="item test-blue box-movie"><img class="owl-lazy" data-src="'
                             + createCardYuGiOhTeste(cardIndex, varCards[index]) + '" data-src-retina="' 
-                            + '" alt=""></div>']
+                            + '" alt=""> <a href="#" class="btn"><img src="../img/olho-visualizar-2.png">Ver mais...</a></div>']
 
         $('#' + carrousel) .trigger('add.owl.carousel', cardElement)
                            .trigger('refresh.owl.carousel')
@@ -51,7 +51,7 @@ const generateNewCard = (carrousel, index) => {
    
     if (counts[index] < varCards[index].data.length) {
         let cardElement = ['<div class="test-blue item box-movie animate__animated animate__flipInY"><img class="box-movie owl-lazy" data-src="' 
-                        + createCardYuGiOhTeste(counts[index], varCards[index]) + '" alt=""> </div>']
+                        + createCardYuGiOhTeste(counts[index], varCards[index]) + '" alt=""><a href="#" class="btn"><img src="../img/olho-visualizar-2.png">Ver mais...</a></div>']
 
         $('#' + carrousel)
             .trigger('to.owl.carousel', [-4, 500])
@@ -97,12 +97,13 @@ carousel.on('mouseover', '.item', event => {
     console.log(elementDiv.classList);
     elementDiv.classList.replace('test-blue', 'test-red');
     
+    
     //$(this).find('.test-red:first').addClass('active');
 });
 
 carousel.on('mouseout', '.item', event => {
     event.preventDefault();  
-    console.log('carousel on click item', event.currentTarget)
+    console.log('carousel on click item', event.currentTarget )
 
     let elementDiv =  event.currentTarget;
 
