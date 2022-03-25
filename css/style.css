@@ -6,7 +6,7 @@
 /*ELEMENTOS BASE*/
 :root {
   --vermelho: #e50914;
-  --preta: #000000e8;
+  --preta: #000000;
   --branco: rgb(243, 240, 240);
 }
 
@@ -52,7 +52,7 @@ header nav ul li a:hover{
 /*FILME PRINCIPAL*/
 .main-movie{
     font-size: 16px;
-    background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50) 100%), url("../img/yu-gi-oh-logo.jpg") no-repeat;
+    background: linear-gradient(rgba(0,0,0, 0.50), rgba(0,0,0, 0.50) 100%), url("../img/yu-gi-oh-logo-2.jpg") no-repeat;
     height: 400px;
     background-size: cover;
     display: flex;
@@ -209,3 +209,41 @@ h2.info-corousel{
      width: 100%;
      height: 100%;
  }
+
+ .modal .modal-header, .modal-body, .modal-footer{
+    background-color: rgb(19, 6, 34);
+   
+ }
+
+
+ .modal{
+    color:  rgb(214, 192, 240);
+ }
+
+ .modal input, .modal textarea, .modal .card {
+    color:  rgb(19, 6, 34);
+    background-color: rgb(214, 192, 240);
+ }
+
+
+ .modal-title {
+     font-weight: bold;
+     font-size: 20px;
+ }
+
+
+ .carousel-movies>span {
+     font-size: 70%;
+     font-weight: bold;
+     background-color: #5d1616;  
+ }
+
+ .carousel-movies span h6.info-carousel {
+    padding: 0px;
+    margin: 0px;
+   
+}
+
+.carousel-movies span {
+    margin-right: 4px;
+}
