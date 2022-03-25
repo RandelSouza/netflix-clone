@@ -2,8 +2,8 @@
 let carousel = $('#carousel');
 let buttonsNext;
 let load = false;
-let count = 5;
-let count2 = 5;
+let count = 0;
+let count2 = 0;
 let nexts;
 let carousels = ['carousel', 'carousel2'];
 let counts = [count, count2];
@@ -26,17 +26,25 @@ $('#assistir-agora').click(() => {
 const generateInitialCards = (carrousel, index, numberCards) => {
     let speedTransitionCard = 100;
 
-    for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {      
-        let cardElement = ['<div class="item test-blue box-movie"><img class="owl-lazy" data-src="'
-                            + createCardYuGiOhTeste(cardIndex, varCards[index]) + '" data-src-retina="' 
-                            + '" alt=""> <a href="#" class="btn"><img src="../img/olho-visualizar-2.png">Ver mais...</a></div>']
+    for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {    
+        let cardImage =   '<img class="owl-lazy" data-src="'
+                            + createCardYuGiOhTeste(cardIndex, varCards[index])
+                            + '" data-src-retina="' 
+                            + '" alt="">';
 
-        $('#' + carrousel) .trigger('add.owl.carousel', cardElement)
-                           .trigger('refresh.owl.carousel')
-                           .trigger('to.owl.carousel', [-4, 2000]);        
+        let linkButton = ' <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="'+index+'" data-id="'+varCards[index].data[counts[index]].id+'" class="btn" id="button-more"><img src="../img/olho-visualizar-2.png">Ver mais...</a>';
+
+        let cardElement = ['<div  class="item test-blue box-movie">'+ cardImage + linkButton+'</div>']
+
+        $('#' + carrousel).trigger('add.owl.carousel', cardElement)
+                          .trigger('refresh.owl.carousel')
+                          .trigger('to.owl.carousel', [-4, 2000]); 
+
+        counts[index]++;     
     }
 
     eventClickNextButton(carrousel, index, speedTransitionCard);
+
    
 }
 
@@ -51,7 +59,7 @@ const generateNewCard = (carrousel, index) => {
    
     if (counts[index] < varCards[index].data.length) {
         let cardElement = ['<div class="test-blue item box-movie animate__animated animate__flipInY"><img class="box-movie owl-lazy" data-src="' 
-                        + createCardYuGiOhTeste(counts[index], varCards[index]) + '" alt=""><a href="#" class="btn"><img src="../img/olho-visualizar-2.png">Ver mais...</a></div>']
+                        + createCardYuGiOhTeste(counts[index], varCards[index]) + '" alt=""><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="'+index+'" data-id="'+varCards[index].data[counts[index]].id+'" class="btn" id="button-more"><img src="../img/olho-visualizar-2.png">Ver mais...</a></div>']
 
         $('#' + carrousel)
             .trigger('to.owl.carousel', [-4, 500])
@@ -75,22 +83,69 @@ carousel.owlCarousel({
 }).trigger('to.owl.carousel', [-3, 1000]);
 
 
-carousel.on('click', '.item', event => {
-    event.preventDefault();
-    let button = document.createElement('button');
-    let elementDiv =  event.currentTarget;
+//carousel.on('click', '#button-more', event => {
+//    event.preventDefault();  
+    //let elementDiv =  event.currentTarget;
   
     //elementDiv.appendChild(button)
-    console.log(elementDiv.classList);
-    console.log('carousel on click item', event.currentTarget)
+    //console.log(elementDiv.classList);
+    //console.log(elementDiv.getAttribute("data-id"));
+    //console.log('carousel on click item', event.currentTarget)   
     
     //$(this).find('.test-red:first').addClass('active');
-});
+//});
+
+var exampleModal = document.getElementById('staticBackdrop')
+exampleModal.addEventListener('show.bs.modal', (event) => {
+  // Button that triggered the modal
+  var button = event.relatedTarget
+  // Extract info from data-bs-* attributes
+  var idCard = button.getAttribute('data-id')
+  var indexArray = button.getAttribute('data-array-index')
+  console.log(idCard, indexArray);
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+
+  let cardMonster =varCards[indexArray].data.find(card => card.id == idCard);
+
+  let modalTitle = exampleModal.querySelector('.modal-title')
+  let modalBodyInput = exampleModal.querySelector('.modal-body input')
+  let img = exampleModal.querySelector('.card-img-top')
+  let messageText = exampleModal.querySelector('#message-text');
+  let cardAttack = exampleModal.querySelector('#card-attack');
+  let cardDefense = exampleModal.querySelector('#card-defense');
+  let cardType = exampleModal.querySelector('#card-type');
+  let cardCategory = exampleModal.querySelector('#card-category');
+  let cardLevel = exampleModal.querySelector('#card-level');
+  let cardAttribute = exampleModal.querySelector('#card-attribute');
+  
+  console.log(cardMonster)
+
+  modalTitle.textContent = 'Nome: ' + cardMonster.name;
+  modalBodyInput.value = cardMonster.id;
+
+  let imageUrl = cardMonster.card_images[0].image_url;
+  img.src = imageUrl !== undefined ?  imageUrl : '../img/card-backward.png';
+
+  messageText.value = cardMonster.desc !== undefined ? cardMonster.desc : ' ━ ';
+  cardAttack.value = cardMonster.atk !== undefined ? cardMonster.atk  : ' ━ ';
+  cardDefense.value = cardMonster.def !== undefined ? cardMonster.def : ' ━ ';
+  cardType.value = cardMonster.type !== undefined ? cardMonster.type : ' ━ ';
+  cardCategory.value = cardMonster.race  !== undefined ? cardMonster.race : ' ━ ';
+  cardLevel.value = cardMonster.level !== undefined ? cardMonster.level + ' ★ ' : ' ━ ';
+  cardAttribute.value = cardMonster.attribute !== undefined ? cardMonster.attribute : ' ━ ';
+  
+  //cardTitle.innerHTML = cardMonster.name;
+
+})
 
 carousel.on('mouseover', '.item', event => {
     event.preventDefault();
     
     console.log('carousel on click item', event.currentTarget)
+   
 
     let elementDiv =  event.currentTarget;
 
