@@ -32,7 +32,7 @@ const generateInitialCards = (carrousel, index, numberCards) => {
                             + '" data-src-retina="' 
                             + '" alt="">';
 
-        let linkButton = ' <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="'+index+'" data-id="'+varCards[index].data[counts[index]].id+'" class="btn" id="button-more"><img src="./img/olho-visualizar-2.png">Ver mais...</a>';
+        let linkButton = ' <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="'+index+'" data-id="'+varCards[index].data[counts[index]].id+'" class="btn rounded-pill" id="button-more">VER MAIS...<img src="./img/olho-visualizar-2.png"></a>';
 
         let cardElement = ['<div  class="item test-blue box-movie">'+ cardImage + linkButton+'</div>']
 
@@ -59,7 +59,7 @@ const generateNewCard = (carrousel, index) => {
    
     if (counts[index] < varCards[index].data.length) {
         let cardElement = ['<div class="test-blue item box-movie animate__animated animate__flipInY"><img class="box-movie owl-lazy" data-src="' 
-                        + createCardYuGiOhTeste(counts[index], varCards[index]) + '" alt=""><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="'+index+'" data-id="'+varCards[index].data[counts[index]].id+'" class="btn" id="button-more"><img src="./img/olho-visualizar-2.png">Ver mais...</a></div>']
+                        + createCardYuGiOhTeste(counts[index], varCards[index]) + '" alt=""><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="'+index+'" data-id="'+varCards[index].data[counts[index]].id+'" class="btn rounded-pill" id="button-more">VER MAIS...<img src="./img/olho-visualizar-2.png"></a></div>']
 
         $('#' + carrousel)
             .trigger('to.owl.carousel', [-4, 500])
