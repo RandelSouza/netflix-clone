@@ -23,57 +23,6 @@ window.onload = () => {
     }, 2000);
 }
 
-$('#assistir-agora').click(() => {
-    // Mostrar modal com as opções do site
-})
-
-const generateInitialCards = (carrousel, index, numberCards) => {
-    counts[index] = 0;
-
-    for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {
-        let cardImage = '<img class="owl-lazy" data-src="'
-            + createCardYuGiOhTeste(cardIndex, varCards[index])
-            + '" data-src-retina="'
-            + '" alt="">';
-
-        let linkButton = ' <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="' + index + '" data-id="' + varCards[index].data[counts[index]].id + '" class="btn rounded-pill" id="button-more">VER MAIS...<img src="./img/olho-visualizar-2.png"></a>';
-
-        let cardElement = ['<div  class="item test-blue box-movie">' + cardImage + linkButton + '</div>']
-
-        $('#' + carrousel).trigger('add.owl.carousel', cardElement)
-            .trigger('refresh.owl.carousel')
-            .trigger('to.owl.carousel', [-4, 2000]);
-
-        counts[index]++;
-    }
-}
-
-const eventClickNextButton = (carrousel, index, speed) => {
-    $('#next' + (index + 1)).click(() => {
-        generateNewCard(carrousel, index);
-        $('#' + carrousel).trigger('next.owl.carousel', [speed]);
-    });
-}
-
-const createElementCard = (index) => {
-    let cardElement = ['<div class="test-blue item box-movie animate__animated animate__flipInY"><img class="box-movie owl-lazy" data-src="'
-        + createCardYuGiOhTeste(counts[index], varCards[index]) + '" alt=""><a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="' + index + '" data-id="' + varCards[index].data[counts[index]].id + '" class="btn rounded-pill" id="button-more">VER MAIS...<img src="./img/olho-visualizar-2.png"></a></div>'];
-
-    return cardElement;
-}
-
-const generateNewCard = (carrousel, index) => {
-
-    if (counts[index] < varCards[index].data.length) {
-
-        $('#' + carrousel)
-            .trigger('to.owl.carousel', [-4, 2000])
-            .trigger('add.owl.carousel', createElementCard(index))
-            .trigger('refresh.owl.carousel');
-        counts[index]++;
-    }
-}
-
 let exampleModal = document.getElementById('staticBackdrop');
 
 exampleModal.addEventListener('show.bs.modal', (event) => {
@@ -81,8 +30,7 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
     let button = event.relatedTarget;
     // Extract info from data-bs-* attributes
     let idCard = button.getAttribute('data-id');
-    let indexArray = button.getAttribute('data-array-index');
-    console.log(idCard, indexArray);
+    let indexArray = button.getAttribute('data-array-index');   
     // If necessary, you could initiate an AJAX request here
     // and then do the updating in a callback.
     //
@@ -101,9 +49,7 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
     let cardCategory = exampleModal.querySelector('#card-category');
     let cardLevel = exampleModal.querySelector('#card-level');
     let cardAttribute = exampleModal.querySelector('#card-attribute');   
-
-    console.log(cardMonster);
-
+  
     labelCardDefense.innerText = 'Defesa';
     
     modalTitle.textContent = 'Nome: ' + cardMonster.name;
@@ -116,14 +62,10 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
     cardAttack.value = cardMonster.atk !== undefined ? cardMonster.atk : ' ━ ';
    
     cardDefense.value = cardMonster.def !== undefined ? cardMonster.def : ' ━ ';
-    
-    console.log(cardMonster.type);
-
+       
     if(cardMonster.type == 'Link Monster'){        
-        cardDefense.value = cardMonster.linkval;
-        console.log(labelCardDefense.innerText);
-        labelCardDefense.innerText = 'Link';
-        console.log(labelCardDefense.innerText);
+        cardDefense.value = cardMonster.linkval;   
+        labelCardDefense.innerText = 'Link';     
     }
 
     cardType.value = cardMonster.type !== undefined ? cardMonster.type : ' ━ ';
@@ -160,31 +102,12 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
 
 })
 
-carousel.on('mouseover', '.item', event => {
-    event.preventDefault();
-    //console.log('carousel on click item', event.currentTarget)
-
-    let elementDiv = event.currentTarget;
-    //console.log(elementDiv.classList);
-    elementDiv.classList.replace('test-blue', 'test-red');
-});
-
-carousel.on('mouseout', '.item', event => {
-    event.preventDefault();
-    //console.log('carousel on click item', event.currentTarget)
-
-    let elementDiv = event.currentTarget;
-
-    //console.log('on mouse out');
-    elementDiv.classList.replace('test-red', 'test-blue');
-
-});
-
+addEventChangeClass(carousel, 'mouseover', '.item', 'test-blue', 'test-red');
+addEventChangeClass(carousel, 'mouseout', '.item', 'test-red', 'test-blue');
 
 $('#first .race').on('click', event => {
     let button = event.currentTarget;
     let race = button.getAttribute('data-race');
-    console.log(race);
 
     let newNumberInitialCards = race === 'Creator-God' ? 1 : numberInitialCards;
 
@@ -197,7 +120,6 @@ $('#first .race').on('click', event => {
 $('#second .race').on('click', event => {
     let button = event.currentTarget;
     let race = button.getAttribute('data-race');
-    console.log(race);
 
     requestRace(race, 1, () => {
         $('#carousel2').trigger('replace.owl.carousel', () => { });
@@ -205,53 +127,6 @@ $('#second .race').on('click', event => {
     });
 });
 
-
-const removeButtonClassActive = (buttonsRace) => {
-    let isActive = false;
-    let dropdownSpellOrTrap = $(".btn-group button");
-
-    Object.entries(buttonsRace)
-        .forEach(([key, value]) => {
-
-            if (`${key}` !== "length" && `${key}` !== "prevObject") {
-                isActive = buttonsRace[`${key}`].classList.contains("active");
-            
-                if (isActive) {                                                     
-                    dropdownSpellOrTrap[0].classList.remove("active");
-                    buttonsRace[`${key}`].classList.remove("active");                                                           
-                }                                                               
-            }
-        }
-    );
-};
-
-const addButtonClassActive = (elementSpans, elementButtons) => {
-    elementSpans.click((event) => {
-        let button = event.currentTarget;
-        let buttonsRace = elementButtons;
-        let dropdownSpellOrTrap = $(".btn-group button");
-
-        removeButtonClassActive(buttonsRace);
-
-        console.log(event);
-        console.log(buttonsRace);
-
-        let race = button.getAttribute('data-race');
-        console.log('AddButtonClassActive : ' + race);
-
-        let raceCompared = spellOrTrapRace.find(raceItem => race == raceItem);
-
-        console.log(raceCompared);
-
-        if (raceCompared != undefined) {
-            dropdownSpellOrTrap[0].classList.add("active");
-            button.classList.add("active");
-        }
-
-        button.classList.add("active");
-    });
-
-}
 
 let firstSpans = $("#first span");
 let firstRaces = $("#first .race");
@@ -261,8 +136,6 @@ let secondSpans = $("#second span");
 let secondRaces = $("#second .race");
 addButtonClassActive(secondSpans, secondRaces);
 
-
-
 $("#second span").click((event) => {
     let button = event.currentTarget;
     let buttonsRace = $("#second .race");
@@ -270,7 +143,6 @@ $("#second span").click((event) => {
     removeButtonClassActive(buttonsRace);
     button.classList.add("active");
 });
-
 
 carousel.owlCarousel({
     dots: false,
@@ -289,4 +161,3 @@ carousel.owlCarousel({
     navText: ['<button id="prev1" type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>'
         , '<button id="next1" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>']
 }).trigger('to.owl.carousel', [-3, 1000]);
-

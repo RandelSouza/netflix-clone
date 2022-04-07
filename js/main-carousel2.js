@@ -1,29 +1,6 @@
 
 let carousel2 = $('#carousel2'); // Pegando o segundo carousel
 
-
-carousel2.on('initialize.owl.carousel', async () => {
-    console.log(`Initialized is ${document.documentElement.scrollHeight}`)
-
-    let items = $('.carousel-part-2');
-
-    for (let i = 0; i < items.length; i++) {
-        //items[i].innerHTML = '<img class="box-movie one owl-lazy" data-src="'+images[i]+'" alt="miniatura ">';
-    }
-
-    await new Promise(resolve => setTimeout(resolve, 2000))
-
-    console.log(`Actual value is ${document.documentElement.scrollHeight}`)
-})
-
-
-$('#assistir-agora').click(function () {
-    // With optional speed parameter
-    // Parameters has to be in square bracket '[]'
-    //carousel2.trigger('prev.owl.carousel', [300]);
-
-})
-
 const printVariableEventCallback = (event) => {
     // Provided by the core
     var element   = event.target;         // DOM element, in this example .owl-carousel
@@ -46,6 +23,9 @@ const printVariableEventCallback = (event) => {
                 'size =' + size)
 }
 
+addEventChangeClass(carousel2, 'mouseover', '.item', 'test-blue', 'test-red');
+addEventChangeClass(carousel2, 'mouseout', '.item', 'test-red', 'test-blue');
+
 carousel2.owlCarousel({
     onLoadLazy: printVariableEventCallback,
     stagePadding: 10,    
@@ -66,39 +46,3 @@ carousel2.owlCarousel({
              ,'<button id="next2" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>']
 });
 
-carousel2.on('click', '.item', event => {
-    event.preventDefault();
-    console.log('carousel on click item', event.currentTarget)
-
-    let elementDiv =  event.currentTarget;
-
-    console.log(elementDiv.classList);
-    elementDiv.classList.replace('test-blue', 'test-red');
-    
-    //$(this).find('.test-red:first').addClass('active');
-});
-
-carousel2.on('mouseover', '.item', event => {
-    event.preventDefault();
-    console.log('carousel on click item', event.currentTarget)
-
-    let elementDiv =  event.currentTarget;
-
-    console.log(elementDiv.classList);
-    elementDiv.classList.replace('test-blue', 'test-red');
-    
-    //$(this).find('.test-red:first').addClass('active');
-});
-
-carousel2.on('mouseout', '.item', event => {
-    event.preventDefault();  
-    console.log('carousel on click item', event.currentTarget)
-
-    let elementDiv =  event.currentTarget;
-
-    console.log('on mouse out');
-    elementDiv.classList.replace('test-red', 'test-blue');
-   
-    
-    //$(this).find('.test-red:first').addClass('active');
-});
