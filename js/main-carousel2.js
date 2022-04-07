@@ -48,7 +48,7 @@ const printVariableEventCallback = (event) => {
 
 carousel2.owlCarousel({
     onLoadLazy: printVariableEventCallback,
-    stagePadding: 10,
+    stagePadding: 10,    
     dots: false,
     nav: true,
     center: true,

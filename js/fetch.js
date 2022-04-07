@@ -15,8 +15,8 @@ let varCards = [];
 
 async function races(race1, race2) {
     Promise.all([
-        fetch(baseUrl + `?race=${race1}`, options),
-        fetch(baseUrl + `?race=${race2}`, options)
+        fetch(baseUrl + `?language=pt&race=${race1}`, options),
+        fetch(baseUrl + `?language=pt&race=${race2}`, options)
     ])
         .then(async ([res1, res2]) => { //async function
            await res1.json()
@@ -50,11 +50,12 @@ async function requestYugiohCards(name) {
         .catch(error => console.log(error));
 }
 
-async function requestYugiohCardsByRace(race) {
-    await fetch(baseUrl + `?race=${race}`, options)
+async function requestYugiohCardsByRace(race, index, callback) {
+    await fetch(baseUrl + `?language=pt&race=${race}`, options)
         .then(response => response.json()
-            .then(data => {
-                cardsYugiOh = data;
+            .then(data => {                
+                varCards[index] = data;
+                callback();
             }))
         .catch(error => console.log(error));
 }
@@ -79,6 +80,6 @@ async function testeGetById() {
     console.log(cardById);
 }
 
-let requestRace = async (race) => {
-    await requestYugiohCardsByRace(race);
+let requestRace = async (race, index, callback) => {
+    await requestYugiohCardsByRace(race, index, callback);
 }
