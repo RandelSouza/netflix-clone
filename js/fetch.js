@@ -13,10 +13,10 @@ const options = {
 let cardById;
 let varCards = [];
 
-async function races(race1, race2) {
+async function races(race1, race2, language) {
     Promise.all([
-        fetch(baseUrl + `?language=pt&race=${race1}`, options),
-        fetch(baseUrl + `?language=pt&race=${race2}`, options)
+        fetch(baseUrl + `?${language}race=${race1}`, options),
+        fetch(baseUrl + `?${language}race=${race2}`, options)
     ])
         .then(async ([res1, res2]) => { //async function
            await res1.json()
@@ -31,7 +31,6 @@ async function races(race1, race2) {
         });
 }
 
-// Talvez seja necessário
 async function requestYugiohCardsById(idCard) {
     await fetch(baseUrl + `?id=${idCard}`, options)
         .then(response => response.json()
@@ -41,8 +40,8 @@ async function requestYugiohCardsById(idCard) {
         .catch(error => console.log(error));
 }
 
-async function requestYugiohCards(name) {
-    await fetch(baseUrl + `?name=${name}`, options)
+async function requestYugiohCardByName(name, language) {
+    await fetch(baseUrl + `?${language}name=${name}`, options)
         .then(response => response.json()
             .then(data => {
                 cardsYugiOh = data;
@@ -50,8 +49,8 @@ async function requestYugiohCards(name) {
         .catch(error => console.log(error));
 }
 
-async function requestYugiohCardsByRace(race, index, callback) {
-    await fetch(baseUrl + `?language=pt&race=${race}`, options)
+async function requestYugiohCardsByRace(race, index, language, callback) {
+    await fetch(baseUrl + `?${language}race=${race}`, options)
         .then(response => response.json()
             .then(data => {                
                 varCards[index] = data;
@@ -60,11 +59,6 @@ async function requestYugiohCardsByRace(race, index, callback) {
         .catch(error => console.log(error));
 }
 
-// As funções de requisição acima podem ser refatoradas para serem mais dinamicas
-// Ou não dependendo do proposito delas
-// é interresante pensar bem nessa organização.
-
-// Função responsavel por montar o HTML exibido na pagina
 function createCardYuGiOh(index) {
     card = cardsYugiOh.data[index].card_images[0].image_url;
     return card;
@@ -75,11 +69,6 @@ function createCardYuGiOhTeste(index, arrayCards, retina=false) {
     return card;
 }
 
-async function testeGetById() {
-    await requestYugiohCardsById(2);
-    console.log(cardById);
-}
-
-let requestRace = async (race, index, callback) => {
-    await requestYugiohCardsByRace(race, index, callback);
+let requestRace = async (race, index, language, callback) => {
+    await requestYugiohCardsByRace(race, index, language, callback);
 }

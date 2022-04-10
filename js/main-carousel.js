@@ -8,10 +8,49 @@ let nexts;
 let carousels = ['carousel', 'carousel2'];
 let counts = [count, count2];
 let speedTransitionCard = 100;
+let language = 'language=pt&'; // pt -> Portuguese, fr -> French, de -> German. it -> Italian
+let itemsCarouselOne;
+let raceCarouselOne = 'Aqua';
+let raceCarouselTwo = 'Plant';
+let textLanguage = 'pt';
 const numberInitialCards = 5;
 const spellOrTrapRace = ["Normal", "Field", "Equip", "Continuous", "Quick-Play", "Ritual", "Counter"];
 
-carousel.on('initialize.owl.carousel', async () => races('Aqua', 'Plant'));
+carousel.on('initialize.owl.carousel', async () => races('Aqua', 'Plant', language));
+
+$("#language ul li a").on('click', (event) => {
+    // Mudando o valor da variavel language
+    textLanguage = event.currentTarget.attributes[0].value;
+    language = textLanguage != '' ? `language=${textLanguage}&` : '';
+
+    // Atualizar carousel1 e carousel2 para a nova linguagem
+    requestRace(raceCarouselOne, 0, language, () => {
+        $('#carousel').trigger('replace.owl.carousel', () => { })
+        .trigger('to.owl.carousel', [-1, 2000]);
+
+        ["carousel"].forEach((carrousel, index) => generateInitialCards(carrousel, index, itemsCarouselOne));
+    });
+
+    requestRace(raceCarouselTwo, 1, language, () => {
+        $('#carousel2').trigger('replace.owl.carousel', () => { })
+        .trigger('to.owl.carousel', [-1, 2000]);
+
+        ["carousel2"].forEach((carrousel, index = 1) => generateInitialCards(carrousel, index = 1, itemsCarouselTwo));
+    });
+
+    console.log(textLanguage)
+    
+    if(textLanguage === 'pt'){
+        $("#language li a")[0].classList.add("active");
+        $("#language li a")[1].classList.remove("active");
+        changePageTextToPortuguese()
+
+    }else{
+        $("#language li a")[0].classList.remove("active");
+        $("#language li a")[1].classList.add("active");
+        changePageTextToEnglish();
+    }
+})
 
 // Adicionar 5 cards depois da página estar completamente carregada.
 window.onload = () => {
@@ -50,9 +89,9 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
     let cardLevel = exampleModal.querySelector('#card-level');
     let cardAttribute = exampleModal.querySelector('#card-attribute');   
   
-    labelCardDefense.innerText = 'Defesa';
+    labelCardDefense.innerText = textLanguage != '' ? 'Defesa:' : 'Defense:' ;
     
-    modalTitle.textContent = 'Nome: ' + cardMonster.name;
+    modalTitle.textContent = textLanguage != '' ? 'Nome: ' + cardMonster.name : 'Name: ' + cardMonster.name ; 
     idCardInput.value = cardMonster.id;
 
     let imageUrl = cardMonster.card_images[0].image_url;
@@ -108,10 +147,11 @@ addEventChangeClass(carousel, 'mouseout', '.item', 'test-red', 'test-blue');
 $('#first .race').on('click', event => {
     let button = event.currentTarget;
     let race = button.getAttribute('data-race');
+    raceCarouselOne = race;
 
     let newNumberInitialCards = race === 'Creator-God' ? 1 : numberInitialCards;
 
-    requestRace(race, 0, () => {
+    requestRace(race, 0, language, () => {
         $('#carousel').trigger('replace.owl.carousel', () => { });
         ["carousel"].forEach((carrousel, index) => generateInitialCards(carrousel, index, newNumberInitialCards));
     });
@@ -120,8 +160,9 @@ $('#first .race').on('click', event => {
 $('#second .race').on('click', event => {
     let button = event.currentTarget;
     let race = button.getAttribute('data-race');
+    raceCarouselTwo = race;
 
-    requestRace(race, 1, () => {
+    requestRace(race, 1, language, () => {
         $('#carousel2').trigger('replace.owl.carousel', () => { });
         ["carousel2"].forEach((carrousel, index = 1) => generateInitialCards(carrousel, index = 1, numberInitialCards));
     });
@@ -144,8 +185,13 @@ $("#second span").click((event) => {
     button.classList.add("active");
 });
 
+const printVariableEventCallbackCarouselOne = (event) => {
+    itemsCarouselOne     = event.item.count;  // Number of items
+}
+
 carousel.owlCarousel({
     dots: false,
+    onLoadLazy: printVariableEventCallbackCarouselOne,
     autoplay: false,
     nav: true,
     center: true,
@@ -161,3 +207,7 @@ carousel.owlCarousel({
     navText: ['<button id="prev1" type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>'
         , '<button id="next1" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>']
 }).trigger('to.owl.carousel', [-3, 1000]);
+
+
+
+;

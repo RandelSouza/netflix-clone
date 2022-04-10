@@ -75,7 +75,7 @@ header nav ul li a:hover {
 }
 
 .btn {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(63, 61, 61, 0.5);
     border          : none;
     color           : #AAA;
     padding         : 15px 30px;
@@ -320,4 +320,8 @@ footer .btn {
 .description,
 .title {
     color: #e0cdcd;
+}
+
+#language-item .dropdown-item.active{
+    background-color:#5d1616;
 }

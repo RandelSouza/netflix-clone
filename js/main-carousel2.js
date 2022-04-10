@@ -1,33 +1,26 @@
 
 let carousel2 = $('#carousel2'); // Pegando o segundo carousel
+let itemsCarouselTwo;
 
-const printVariableEventCallback = (event) => {
+const printVariableEventCallbackCarouselTwo = (event) => {
     // Provided by the core
     var element   = event.target;         // DOM element, in this example .owl-carousel
     var name      = event.type;           // Name of the event, in this example dragged
     var namespace = event.namespace;      // Namespace of the event, in this example owl.carousel
-    var items     = event.item.count;     // Number of items
+    itemsCarouselTwo     = event.item.count;     // Number of items
     var item      = event.item.index;     // Position of the current item
     // Provided by the navigation plugin
     var pages     = event.page.count;     // Number of pages
     var page      = event.page.index;     // Position of the current page
     var size      = event.page.size;      // Number of items per page
 
-    console.log('element =' + element,
-                'name =' + name, 
-                'namespace =' + namespace,
-                'items =' + items,
-                'item =' + item,
-                'pages =' + pages,
-                'page =' + page,
-                'size =' + size)
 }
 
 addEventChangeClass(carousel2, 'mouseover', '.item', 'test-blue', 'test-red');
 addEventChangeClass(carousel2, 'mouseout', '.item', 'test-red', 'test-blue');
 
 carousel2.owlCarousel({
-    onLoadLazy: printVariableEventCallback,
+    onLoadLazy: printVariableEventCallbackCarouselTwo,
     stagePadding: 10,    
     dots: false,
     nav: true,

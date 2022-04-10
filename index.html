@@ -33,6 +33,7 @@
 
 
     <!--OWL SCRIPTS-->
+    <script type="text/javascript" src="js/language.js" defer></script>
     <script type="text/javascript" src="js/util.js" defer></script>
     <script type="text/javascript" src="js/fetch.js" defer></script>
     <script type="text/javascript" src="js/owl/jquery.min.js" defer></script>
@@ -63,12 +64,12 @@
                         <div class="dropstart">
                             <button class="btn btn-secondary dropdown-toggle rounded-pill btn-dark" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <span class="fs-6 fw-bold">Idioma</span>
+                                <span class="fs-6 fw-bold" id="language-options">Idioma</span>
                             </button>
                         
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                                <li><a class="dropdown-item active" href="#">Português</a></li>
-                                <li><a class="dropdown-item" href="#">Inglês</a></li>
+                            <ul id="language-item" class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                <li><a data-language="pt" class="dropdown-item active" href="#">Português</a></li>
+                                <li><a data-language="" class="dropdown-item" href="#">Inglês</a></li>
                             </ul>
                         </div>                                         
                     </li>                                      
@@ -83,9 +84,9 @@
            
             <div class="container-yugioh ">
                
-                <h3 class="title  fs-1">Lista de Cartas do Jogo!</h3>
+                <h3 class="title fs-1" id="titleOne">Lista de Cartas do Jogo!</h3>
                 <img src="./img/Yu-Gi-Oh-capa.png" width="300" height="200" class="img-fluid mt-4" alt="">
-                <p class="description fs-6 lh-base ">
+                <p class="description fs-6 lh-base" id="descriptionOne">
                     A série de mangá e anime Yu-Gi-Oh! introduz o jogo de cartas colecionáveis originalmente criado por
                     Kazuki Takahashi, desenvolvido e publicado pela Konami. O jogo começou a ser produzido em 1998, e
                     hoje é jogado no mundo inteiro.
@@ -96,9 +97,9 @@
                         <i class="fas fa-play"></i>
                         GAMEPLAYS
                     </button>
-                    <button class="btn fw-bold" id="ver-mais" type="button" role="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                    <button class="btn fw-bold" type="button" role="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                         <i class="fas fa-info-circle"></i>
-                        MAIS INFORMAÇÕES
+                        <span id="more-information">MAIS INFORMAÇÕES</span>
                     </button>
                 </div>
             </div>
@@ -216,20 +217,20 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="col ">
-                                            <label for="card-category" class="col-form-label">Categoria:</label>
+                                            <label id="category-label" for="card-category" class="col-form-label">Categoria:</label>
                                             <input type="text" class="form-control " id="card-category" disabled>
                                         </div>
                                     </div>
                                     
                                     <div class="row">                                        
                                         <div class="col">
-                                            <label for="id-card" class="col-form-label">Identificador: </label>
+                                            <label id="identifier-label" for="id-card" class="col-form-label">Identificador: </label>
                                             <input type="text" class="form-control" id="id-card" disabled>
                                         </div>
                                         <div class="col">
                                             <div class="row">                                               
                                                 <div class="col">
-                                                    <label for="card-level" class="col-form-label">Nível:</label>
+                                                    <label id="level-label" for="card-level" class="col-form-label">Nível:</label>
                                                     <input type="text" class="form-control" id="card-level" disabled>
                                                 </div>
 
@@ -242,22 +243,22 @@
 
                             </div>
                              <div class="mb-1">
-                                <label for="card-type" class="col-form-label">Tipo: </label>
+                                <label id="type-label"  for="card-type" class="col-form-label">Tipo: </label>
                                 <input type="text" class="form-control" id="card-type" disabled>
                             </div>  
                             <div class="mb-1">
-                                <label for="message-text" class="col-form-label">Descrição: </label>
+                                <label id="description-label" for="message-text" class="col-form-label">Descrição: </label>
                                 <textarea class="form-control" rows="5" id="message-text" style="height: 100%;"
                                     disabled></textarea>
                             </div>
                              
                             <div class="mb-1">
-                                <label for="card-attribute" class="col-form-label">Atributo: </label>
+                                <label id="attribute-label" for="card-attribute" class="col-form-label">Atributo: </label>
                                 <input type="text" class="form-control" id="card-attribute" disabled>
                             </div>                           
                             <div class="row mb-1">
                                 <div class="col">
-                                    <label for="card-attack" class="col-form-label">Ataque:</label>
+                                    <label id="attack-label" for="card-attack" class="col-form-label">Ataque:</label>
                                     <input type="text" class="form-control" id="card-attack" disabled>
                                 </div>
                                 <div class="col">
@@ -272,8 +273,8 @@
             </div>
             <div class="modal-footer ">
                 <div class="mx-auto">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i>FECHAR</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"><i class="fas fa-dollar-sign"></i>PREÇOS</button>                   
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i><span id="staticBackdrop-btn-close">FECHAR</span></button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"><i class="fas fa-dollar-sign"></i><span id="staticBackdrop-btn-prices">PREÇOS</span></button>                   
                 </div>                
             </div>
         </div>
@@ -313,7 +314,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary mx-auto" data-bs-dismiss="modal"><i class="fas fa-times"></i>FECHAR</button>
+                <button type="button" class="btn btn-secondary mx-auto" data-bs-dismiss="modal"><i class="fas fa-times"></i><span id="staticBackdrop2-btn-close">FECHAR</span></button>
             </div>
         </div>
     </div>
@@ -332,9 +333,9 @@
             </div>
             <div class="modal-body">
 
-                <h2 class="fs-4 text mb-4 fw-bold">Jogo de cartas</h2>
+                <h2 class="fs-4 text mb-4 fw-bold" id="titile-staticBackdrop3">Jogo de cartas</h2>
 
-                <p class="fs-5 text lh-base mb-5">A série de mangá e anime Yu-Gi-Oh! introduz o jogo de cartas colecionáveis original criado por <span class="fw-bold">Kazuki Takahashi</span>,
+                <p class="fs-5 text lh-base mb-5" id="staticBackdrop3-p-1">A série de mangá e anime Yu-Gi-Oh! introduz o jogo de cartas colecionáveis original criado por <span class="fw-bold">Kazuki Takahashi</span>,
                     desenvolvido e publicado pela <span class="fw-bold">Konami</span>. O jogo começou a ser produzido em 1998, e hoje é jogado no mundo inteiro. O
                     jogo possui algumas diferenças quanto ao fictício, pois este servia para se adequar ao enredo. Takahashi começou a
                     fazer as cartas em 1996. Em agosto de 2008, a TV Tokyo relatou que o jogo de cartas da série já vendeu mais de 18
@@ -346,9 +347,9 @@
                     franquia cresce.
                 </p>
 
-                <img class="img-fluid mx-auto d-block mb-4" src="img/tenor.gif" alt="">
+                <img class="img-fluid mx-auto d-block mb-4" src="img/tenor.gif" alt="" id="staticBackdrop3-img-1">
 
-                <p class="fs-5 text lh-base mb-4">
+                <p class="fs-5 text lh-base mb-4" id="staticBackdrop3-p-2">
                     O jogo de cartas - cujo nome original é <span class="fst-italic">Yu-Gi-Oh! Trading Card Game</span> (<span class="fst-italic"></span>遊☆戯☆王 オフィシャルカードゲーム em japonês, Yū☆Gi☆Ō
                     turadingu Kādo Gēmu em rōmaji, abreviado como TCG</span>)  - é baseado em batalhas de monstros e ativação de efeitos bônus e
                     armadilhas num duelo entre 2 oponentes, cada um possuindo 8000 LPs (<span class="fst-italic">Life Points</span>, ou Pontos de Vida) e usando Decks
@@ -356,7 +357,7 @@
                 </p>
 
                 <ul>
-                    <li class="fs-5 text lh-base mb-4">                    
+                    <li class="fs-5 text lh-base mb-4" id="staticBackdrop3-l1-1">                    
                         <span class="fw-bold">Tradicional</span> Neste formato de duelo, quase todas as cartas existentes desde a primeira coleção (<span class="fst-italic">Legend of Blue-Eyes
                         Dragon</span>) até a mais recente são permitidas para jogar - exceto cartas "banidas" conforme uma lista periódica
                         (anteriormente semestral ou trimestral, agora sem um período fixo) publicada pela Konami. Normalmente, pessoas que
@@ -365,40 +366,40 @@
                         cartas limitadas e restritas.                                              
                     </li> 
                 
-                    <li class="fs-5 text lh-base mb-4">                        
+                    <li class="fs-5 text lh-base mb-4" id="staticBackdrop3-l1-2">                        
                         <span class="fw-bold">Avançado</span> Neste formato, mais largamente utilizado nos torneios, há maior limitação das cartas permitidas para uso
                         (algumas cartas são limitadas a 2 ou 1 por <span class="fst-italic">Deck</span>). Por causa disto, aqui predominam os Decks baseados no controle da
                         partida através da interrupção das investidas do oponente (ou "controle de campo") ou remoção de cartas.                                                
                     </li>
                 </ul>
 
-                <p class="fs-5 text lh-base mb-4">
+                <p class="fs-5 text lh-base mb-4" id="staticBackdrop3-p-3">
                     Os campeonatos mais conhecidos e movimentados são Yu-Gi-Oh! <span class="fst-italic">World Championship</span> e Yu-Gi-Oh! <span class="fst-italic">Championship Series</span>, ou
                     YCS, mas há outros tipos de campeonatos, como a "<span class="fst-italic">Pegasus League</span>" (com regras próprias e variadas a cada torneio),
                     "<span class="fst-italic">Sneak Peek</span>" (torneios de <span class="fst-italic">Decks</span> montados com a coleção mais recente),"<span class="fst-italic">Dragon Duel</span>" (com crianças até 12 anos), <span class="fst-italic">World
                     Championship Qualifier</span>; ou WCQ, Yu-Gi-Oh! Day e <span class="fst-italic">Ultimate Duelist Series</span>, ou UDS.
                 </p>
 
-                <h2 class="fs-4 text mb-4 fw-bold">Outros jogos</h2>
+                <h2 class="fs-4 text mb-4 fw-bold" id="titile-staticBackdrop3-2">Outros jogos</h2>
 
-                <p class="fs-5 text lh-base mb-4">Vários outros jogos foram adaptados do mangá original:</p>
+                <p class="fs-5 text lh-base mb-4" id="staticBackdrop3-p-4">Vários outros jogos foram adaptados do mangá original:</p>
 
                 <ul>
-                    <li class="fs-5 text mb-4"><span class="fst-italic">Capsule Monster Chess</span> (Capmon) — Jogo de miniaturas colecionáveis.</li>
-                    <li class="fs-5 text mb-4"><span class="fst-italic">Monster World</span> — Um jogo de xadrez RPG.</li>
-                    <li class="fs-5 text mb-4">
+                    <li class="fs-5 text mb-4" id="staticBackdrop3-l1-3"><span class="fst-italic">Capsule Monster Chess</span> (Capmon) — Jogo de miniaturas colecionáveis.</li>
+                    <li class="fs-5 text mb-4" id="staticBackdrop3-l1-4"><span class="fst-italic">Monster World</span> — Um jogo de xadrez RPG.</li>
+                    <li class="fs-5 text mb-4" id="staticBackdrop3-l1-5">
                         <span class="fst-italic">Dungeon Dice Monsters</span> (DDM), conhecido no mangá como <span class="fst-italic">Dragons Dice & Dungeons</span> (DDD) — Um jogo de tabuleiro cujos
                         quadrados são criados com faces de dados D6. Foi lançado como um jogo de cartas real, mas o jogo não é popular e
                         novas figuras não são mais lançadas.
                     </li>
-                    <li class="fs-5 text mb-4"><span class="fst-italic">Duel Links</span> - Jogo de cartas para IOS, Android e Microsoft.</li>
+                    <li class="fs-5 text mb-4" id="staticBackdrop3-l1-6"><span class="fst-italic">Duel Links</span> - Jogo de cartas para IOS, Android e Microsoft.</li>
                 </ul>
 
-                <p class="fs-5 text lh-base mb-4">Fonte: <a target="_blank" href="https://pt.wikipedia.org/wiki/Yu-Gi-Oh!#:~:text=6%20Liga%C3%A7%C3%B5es%20externas-,Hist%C3%B3ria,%E6%AD%A6%E8%97%A4%E5%8F%8C%E5%85%AD%20Mut%C5%8D%20Sugoroku).">Wikipédia</a>, a enciclopédia livre.</p>
+                <p class="fs-5 text lh-base mb-4" id="staticBackdrop3-p-5">Fonte: <a target="_blank" href="https://pt.wikipedia.org/wiki/Yu-Gi-Oh!#:~:text=6%20Liga%C3%A7%C3%B5es%20externas-,Hist%C3%B3ria,%E6%AD%A6%E8%97%A4%E5%8F%8C%E5%85%AD%20Mut%C5%8D%20Sugoroku).">Wikipédia</a>, a enciclopédia livre.</p>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary mx-auto" data-bs-dismiss="modal"><i class="fas fa-times"></i>Voltar</button>
+                <button type="button" class="btn btn-secondary mx-auto" data-bs-dismiss="modal"><i class="fas fa-times"></i><span id="staticBackdrop3-to-go-back">Voltar</sapn></button>
             </div>
         </div>
     </div>
@@ -412,23 +413,23 @@
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="price-card-title fw-bold">Gameplays de yu-gi-oh!</h5>
+                <h5 class="modal-title fw-bold" id="title-gameplays">Gameplays de yu-gi-oh!</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-                <h2 class="fs-4 text mb-4 fw-bold">Vídeos de Gameplays de Jogos yu-gi-oh!</h2>
+                <h2 class="fs-4 mb-4 fw-bold" id="title-gameplays-1">Vídeos de Gameplays de Jogos yu-gi-oh!</h2>
 
-                <p class="fs-5 text lh-base mb-4">
+                <p class="fs-5 lh-base mb-4" id="gameplays-description-1">
                    YouTuber: Renan Sparrow | Jogo: Master Duel
                 </p>
 
-                <div class="ratio ratio-16x9 w-50 p-3 mx-auto d-block mb-4">
+                <div class="ratio ratio-16x9 w-50 p-3 mx-auto d-block mb-4" >
                     <iframe src="https://www.youtube.com//embed/nysEJuZAmBw" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
-                <p class="fs-5 text lh-base mb-4">
+                <p class="fs-5 lh-base mb-4" id="gameplays-description-2">
                     YouTuber: Fiaspo | Jogo: YU-GI-OH DUEL LINKS
                  </p>                
 
@@ -436,7 +437,7 @@
                     <iframe  src="https://www.youtube.com/embed/zH4PabdW770" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
-                <p class="fs-5 text lh-base mb-4">
+                <p class="fs-5 lh-base mb-4" id="gameplays-description-3">
                     Canal: Dysphoric Entertainment | Jogo: Yu-Gi-Oh! The Duelists of the Roses (PS2) 
                  </p>    
 
@@ -447,7 +448,7 @@
               
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary mx-auto" data-bs-dismiss="modal"><i class="fas fa-times"></i>Voltar</button>
+                <button type="button" class="btn btn-secondary mx-auto" data-bs-dismiss="modal"><i class="fas fa-times"></i><span id="staticBackdrop4-go-back">Voltar</span></button>
             </div>
         </div>
     </div>
