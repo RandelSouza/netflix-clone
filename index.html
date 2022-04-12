@@ -92,7 +92,7 @@
                     hoje é jogado no mundo inteiro.
                 </p>
 
-                <div class="title-btns">
+                <div class="title-btns d-flex flex-row">
                     <button class="btn btn-light fw-bold" id="gameplays" type="button" role="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
                         <i class="fas fa-play"></i>
                         GAMEPLAYS
@@ -100,6 +100,10 @@
                     <button class="btn fw-bold" type="button" role="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
                         <i class="fas fa-info-circle"></i>
                         <span id="more-information">MAIS INFORMAÇÕES</span>
+                    </button>
+                    <button class="btn fw-bold" data-id="search" type="button" role="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <i class="fas fa-search"></i>
+                        <span id="search">PESQUISAR CARTA</span>
                     </button>
                 </div>
             </div>
@@ -199,12 +203,29 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content ">
             <div class="modal-header">
-                <h1 class="modal-title" id="staticBackdropLabel">Modal title</h1>
+                <div id="staticBackdropLabel" class="row">
+                    <h1 class="modal-title">Modal title</h1>
+                </div>
+               
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
             <div class="modal-body modal-dialog-scrollable ">
+
+                <div id="div-search-card" hidden>
+                    <div id="search-card-label" for="" class="col-form-label d-flex flex-row-reverse mr-0">                       
+                        <button id="btn-search" type="button" class="btn btn-secondary fw-bold mb-1">
+                            <i class="fas fa-search"></i>
+                            PESQUISAR PELO NOME EXATO
+                        </button>
+                    </div>   
+                    <input type="text" class="form-control " id="search-card" placeholder="Exemplo: Slifer, o Dragão Celeste" autofocus>   
+                                                                        
+                </div>
+
                 <div class="row">
+
+                  
                     <div class="col">
                         <div class="card mt-3">
                             <!--Card Body if necessary-->
@@ -214,6 +235,7 @@
                     <div class="col">
                         <form>
                             <div class="mb-1">
+                            
                                 <div class="col">
                                     <div class="row">
                                         <div class="col ">
@@ -404,7 +426,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!-- Modal -->

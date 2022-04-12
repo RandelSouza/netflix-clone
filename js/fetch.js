@@ -12,6 +12,7 @@ const options = {
 
 let cardById;
 let varCards = [];
+let cardMosterData;
 
 async function races(race1, race2, language) {
     Promise.all([
@@ -40,14 +41,26 @@ async function requestYugiohCardsById(idCard) {
         .catch(error => console.log(error));
 }
 
-async function requestYugiohCardByName(name, language) {
+async function requestYugiohCardByName(name, language, callback) {
     await fetch(baseUrl + `?${language}name=${name}`, options)
         .then(response => response.json()
             .then(data => {
-                cardsYugiOh = data;
+                cardMosterData = data;
+                callback();
             }))
         .catch(error => console.log(error));
 }
+
+async function requestYugiohCardByFname(name, language, callback) {
+    await fetch(baseUrl + `?${language}fname=${name}&&limit=1`, options)
+        .then(response => response.json()
+            .then(data => {
+                cardMosterData = data;
+                callback();
+            }))
+        .catch(error => console.log(error));
+}
+
 
 async function requestYugiohCardsByRace(race, index, language, callback) {
     await fetch(baseUrl + `?${language}race=${race}`, options)

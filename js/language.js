@@ -17,6 +17,10 @@ const changePageTextToEnglish = () => {
     $("#staticBackdrop-btn-prices")[0].innerText = 'PRICES';
     $("#price-card-title")[0].innerText = 'Price in Dollar / Euro'; 
     $("#staticBackdrop2-btn-close")[0].innerText = 'CLOSE';
+    $("#search")[0].innerText = 'SEARCH CARD';
+    $("#btn-search")[0].innerText = 'SEARCH BY EXACT NAME';
+    $("#search-card").attr("placeholder", "Example: Slifer the Sky Dragon");
+   
 
     // Alterando texto dentro dos dropdowns
     $("#language li a")[0].innerText = 'Portuguese';
@@ -106,6 +110,10 @@ const changePageTextToPortuguese = () => {
     $("#staticBackdrop-btn-prices")[0].innerText = 'PREÇOS';
     $("#price-card-title")[0].innerText = 'Preço em Dolar / Euro'; 
     $("#staticBackdrop2-btn-close")[0].innerText = 'FECHAR';
+    $("#search")[0].innerText = 'PESQUISAR CARTA';
+    $("#btn-search")[0].innerText = 'PESQUISAR PELO NOME EXATO';
+    $("#search-card").attr("placeholder", "Exemplo: Slifer, o Dragão Celeste");
+    
 
     // Alterando texto dentro dos dropdowns
     $("#language li a")[0].innerText = 'Português';

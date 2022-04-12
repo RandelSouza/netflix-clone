@@ -325,3 +325,14 @@ footer .btn {
 #language-item .dropdown-item.active{
     background-color:#5d1616;
 }
+
+
+.card-img, .card-img-bottom, .card-img-top {
+    width: 100%;
+}
+
+
+#search-card-label > button{
+    margin-right: 0px;
+    width: 48%;
+}
