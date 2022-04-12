@@ -114,7 +114,6 @@ const changePageTextToPortuguese = () => {
     $("#btn-search")[0].innerText = 'PESQUISAR PELO NOME EXATO';
     $("#search-card").attr("placeholder", "Exemplo: Slifer, o Dragão Celeste");
     
-
     // Alterando texto dentro dos dropdowns
     $("#language li a")[0].innerText = 'Português';
     $("#language li a")[1].innerText = 'Inglês';

@@ -55,7 +55,7 @@ const createElementCard = (index) => {
     
 
     let classImgBoxMovie = 'class="box-movie owl-lazy"';
-    let dataSourceImg = 'data-src="'+ createCardYuGiOhTeste(counts[index], varCards[index]) + '"';
+    let dataSourceImg = 'data-src="'+ createCardYuGiOh(counts[index], varCards[index]) + '"';
     let imgBoxMovie = '<img '+classImgBoxMovie+' '+dataSourceImg+' alt="">';
 
     cardElementClass = 'class="test-blue item box-movie animate__animated animate__flipInY"';
@@ -81,7 +81,7 @@ const generateInitialCards = (carrousel, index, numberCards) => {
 
     for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {
         let cardImage = '<img class="owl-lazy" data-src="'
-            + createCardYuGiOhTeste(cardIndex, varCards[index])
+            + createCardYuGiOh(cardIndex, varCards[index])
             + '" data-src-retina="'
             + '" alt="">';
 

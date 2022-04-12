@@ -19,11 +19,9 @@ const spellOrTrapRace = ["Normal", "Field", "Equip", "Continuous", "Quick-Play",
 carousel.on('initialize.owl.carousel', async () => races('Aqua', 'Plant', language));
 
 $("#language ul li a").on('click', (event) => {
-    // Mudando o valor da variavel language
     textLanguage = event.currentTarget.attributes[0].value;
     language = textLanguage != '' ? `language=${textLanguage}&` : '';
 
-    // Atualizar carousel1 e carousel2 para a nova linguagem
     requestRace(raceCarouselOne, 0, language, () => {
         $('#carousel').trigger('replace.owl.carousel', () => { })
         .trigger('to.owl.carousel', [-1, 2000]);
@@ -36,9 +34,7 @@ $("#language ul li a").on('click', (event) => {
         .trigger('to.owl.carousel', [-1, 2000]);
 
         ["carousel2"].forEach((carrousel, index = 1) => generateInitialCards(carrousel, index = 1, itemsCarouselTwo));
-    });
-
-    console.log(textLanguage)
+    });  
     
     if(textLanguage === 'pt'){
         $("#language li a")[0].classList.add("active");
@@ -73,8 +69,7 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
     // If necessary, you could initiate an AJAX request here
     // and then do the updating in a callback.
     //
-    // Update the modal's content.
-    console.log(idCard);
+    // Update the modal's content.   
     
     if (idCard === 'search') {
         // Modal informações da carta
@@ -112,8 +107,7 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
         let coolstuffincPrice = priceCardModal.querySelector('#coolstuffinc-price');
         let ebayPrice = priceCardModal.querySelector('#ebay-price');
         let tcgPlayerPrice = priceCardModal.querySelector('#tcgplayer-price');        
-        
-        console.log('Limpando preços...')
+                
         amazonPrice.value = '';
         cardmarketPrice.value = '';
         coolstuffincPrice.value = '';
@@ -262,8 +256,7 @@ $("#btn-search").on('click', () => {
     let cardName = $("#search-card")[0].value;
    
     requestYugiohCardByName(cardName, language, () => {
-        let cardMonster = cardMosterData.data[0];
-        console.log(cardMonster);
+        let cardMonster = cardMosterData.data[0];      
 
         let modalTitle = exampleModal.querySelector('.modal-title');
         let idCardInput = exampleModal.querySelector('#id-card');
