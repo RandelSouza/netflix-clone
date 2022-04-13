@@ -15,7 +15,7 @@ async function races(race1, race2, language) {
         fetch(URL_YUGIOH + `?${language}race=${race1}`, OPTIONS),
         fetch(URL_YUGIOH + `?${language}race=${race2}`, OPTIONS)
     ])
-        .then(async ([responseRace1, responseRace2]) => { //async function
+        .then(async ([responseRace1, responseRace2]) => {
             await responseRace1.json()
                 .then(data => varCards.push(data));
 

@@ -1,27 +1,31 @@
 
-let carousel2 = $('#carousel2'); // Pegando o segundo carousel
+let carousel2 = $('#carousel2');
 let itemsCarouselTwo;
 
-const printVariableEventCallbackCarouselTwo = (event) => {
-    // Provided by the core
-    var element   = event.target;         // DOM element, in this example .owl-carousel
-    var name      = event.type;           // Name of the event, in this example dragged
-    var namespace = event.namespace;      // Namespace of the event, in this example owl.carousel
-    itemsCarouselTwo     = event.item.count;     // Number of items
-    var item      = event.item.index;     // Position of the current item
-    // Provided by the navigation plugin
-    var pages     = event.page.count;     // Number of pages
-    var page      = event.page.index;     // Position of the current page
-    var size      = event.page.size;      // Number of items per page
+const buttonPreviousTwo = '<button id="prev2" type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>';
+const buttonNextTwo = '<button id="next2" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>';
 
-}
+const getNumberItemsCarouselTwo = event => itemsCarouselTwo = event.item.count;
 
-addEventChangeClass(carousel2, 'mouseover', '.item', 'test-blue', 'test-red');
-addEventChangeClass(carousel2, 'mouseout', '.item', 'test-red', 'test-blue');
+addEventChangeClass({
+    carousel: carousel2,
+    eventType: 'mouseover',
+    elementClass: '.item',
+    oldClass: 'test-blue',
+    newClass: 'test-red'
+});
+
+addEventChangeClass({
+    carousel: carousel2,
+    eventType: 'mouseout',
+    elementClass: '.item',
+    oldClass: 'test-red',
+    newClass: 'test-blue'
+});
 
 carousel2.owlCarousel({
-    onLoadLazy: printVariableEventCallbackCarouselTwo,
-    stagePadding: 10,    
+    onLoadLazy: getNumberItemsCarouselTwo,
+    stagePadding: 10,
     dots: false,
     nav: true,
     center: true,
@@ -31,11 +35,8 @@ carousel2.owlCarousel({
     sliderTransition: 'ease-in',
     animateOut: 'fadeout',
     responsive: {
-        600: {
-            items: 4
-        }
+        600: { items: 4 }
     },
-    navText: ['<button id="prev2" type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>'
-             ,'<button id="next2" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>']
+    navText: [buttonPreviousTwo, buttonNextTwo]
 });
 

@@ -8,13 +8,18 @@ let nexts;
 let carousels = ['carousel', 'carousel2'];
 let counts = [count, count2];
 let speedTransitionCard = 100;
-let language = 'language=pt&'; // pt -> Portuguese, fr -> French, de -> German. it -> Italian
+let language = 'language=pt&';
 let itemsCarouselOne;
 let raceCarouselOne = 'Aqua';
 let raceCarouselTwo = 'Plant';
 let textLanguage = 'pt';
-const numberInitialCards = 5;
+
+const buttonPreviousOne = '<button id="prev1" type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>';
+const buttonNextOne = '<button id="next1" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>';
+
+const NUMBER_INITIAL_CARDS = 5;
 const spellOrTrapRace = ["Normal", "Field", "Equip", "Continuous", "Quick-Play", "Ritual", "Counter"];
+const getNumberItemsCarouselOne = event =>  itemsCarouselOne  = event.item.count;
 
 carousel.on('initialize.owl.carousel', async () => races('Aqua', 'Plant', language));
 
@@ -50,9 +55,9 @@ $("#language ul li a").on('click', (event) => {
 
 // Adicionar 5 cards depois da página estar completamente carregada.
 window.onload = () => {
-    // run in onload
+
     setTimeout(() => {
-        carousels.forEach((carrousel, index) => generateInitialCards(carrousel, index, numberInitialCards));
+        carousels.forEach((carrousel, index) => generateInitialCards(carrousel, index, NUMBER_INITIAL_CARDS));
         eventClickNextButton(carousels[0], 0, speedTransitionCard);
         eventClickNextButton(carousels[1], 1, speedTransitionCard);
     }, 2000);
@@ -60,16 +65,11 @@ window.onload = () => {
 
 let exampleModal = document.getElementById('staticBackdrop');
 
-exampleModal.addEventListener('show.bs.modal', (event) => {
-    // Button that triggered the modal
+exampleModal.addEventListener('show.bs.modal', (event) => {    
     let button = event.relatedTarget;
-    // Extract info from data-bs-* attributes
+   
     let idCard = button.getAttribute('data-id');
     let indexArray = button.getAttribute('data-array-index');
-    // If necessary, you could initiate an AJAX request here
-    // and then do the updating in a callback.
-    //
-    // Update the modal's content.   
     
     if (idCard === 'search') {
         // Modal informações da carta
@@ -183,15 +183,14 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
     }
 })
 
-addEventChangeClass(carousel, 'mouseover', '.item', 'test-blue', 'test-red');
-addEventChangeClass(carousel, 'mouseout', '.item', 'test-red', 'test-blue');
+
 
 $('#first .race').on('click', event => {
     let button = event.currentTarget;
     let race = button.getAttribute('data-race');
     raceCarouselOne = race;
 
-    let newNumberInitialCards = race === 'Creator-God' ? 1 : numberInitialCards;
+    let newNumberInitialCards = race === 'Creator-God' ? 1 : NUMBER_INITIAL_CARDS;
 
     requestRace(race, 0, language, () => {
         $('#carousel').trigger('replace.owl.carousel', () => { });
@@ -206,7 +205,7 @@ $('#second .race').on('click', event => {
 
     requestRace(race, 1, language, () => {
         $('#carousel2').trigger('replace.owl.carousel', () => { });
-        ["carousel2"].forEach((carrousel, index = 1) => generateInitialCards(carrousel, index = 1, numberInitialCards));
+        ["carousel2"].forEach((carrousel, index = 1) => generateInitialCards(carrousel, index=1, NUMBER_INITIAL_CARDS));
     });
 });
 
@@ -227,13 +226,25 @@ $("#second span").click((event) => {
     button.classList.add("active");
 });
 
-const printVariableEventCallbackCarouselOne = (event) => {
-    itemsCarouselOne     = event.item.count;  // Number of items
-}
+addEventChangeClass({
+    carousel,
+    eventType: 'mouseover',
+    elementClass: '.item',
+    oldClass: 'test-blue',
+    newClass: 'test-red'
+});
+
+addEventChangeClass({
+    carousel,
+    eventType: 'mouseout',
+    elementClass: '.item',
+    oldClass: 'test-red',
+    newClass: 'test-blue'
+});
 
 carousel.owlCarousel({
     dots: false,
-    onLoadLazy: printVariableEventCallbackCarouselOne,
+    onLoadLazy: getNumberItemsCarouselOne,
     autoplay: false,
     nav: true,
     center: true,
@@ -242,14 +253,10 @@ carousel.owlCarousel({
     margin: 10,
     sliderTransition: 'ease-in',
     responsive: {
-        600: {
-            items: 4
-        }
+        600: { items: 4 }
     },
-    navText: ['<button id="prev1" type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>'
-        , '<button id="next1" type="button" role="presentation" class="owl-next" id="next2"><span aria-label="Next">›</span></button>']
+    navText: [buttonPreviousOne, buttonNextOne]
 }).trigger('to.owl.carousel', [-3, 1000]);
-
 
 
 $("#btn-search").on('click', () => {

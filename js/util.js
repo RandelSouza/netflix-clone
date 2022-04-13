@@ -1,3 +1,5 @@
+const SPEED_TRANSITION_IN_MILLISECONDS = 1000; 
+
 const eventClickNextButton = (carrousel, index, speed) => {
     $('#next' + (index + 1)).click(() => {
         generateNewCard(carrousel, index);
@@ -51,8 +53,7 @@ const createElementCard = (index) => {
     let dataBsToggle = ' data-bs-toggle="modal"';
     let classElement = 'class="btn rounded-pill" id="button-more"';
     let img = '<img src="./img/olho-visualizar-2.png">';
-    let buttonSeeMore = '<a href="#" '+dataBsToggle+' '+dataBsTarget+' '+dataArrayIndex+' '+classElement+'>VER MAIS...'+img+'</a>';
-    
+    let buttonSeeMore = '<a href="#" '+dataBsToggle+' '+dataBsTarget+' '+dataArrayIndex+' '+classElement+'>VER MAIS...'+img+'</a>';    
 
     let classImgBoxMovie = 'class="box-movie owl-lazy"';
     let dataSourceImg = 'data-src="'+ createCardYuGiOh(counts[index], varCards[index]) + '"';
@@ -64,45 +65,36 @@ const createElementCard = (index) => {
     return cardElement;
 }
 
-const generateNewCard = (carrousel, index) => {
+const addNewItemOwlCarousel = (carrousel, index, position=-4) => {
+    $('#' + carrousel)
+        .trigger('to.owl.carousel', [position, SPEED_TRANSITION_IN_MILLISECONDS, true])
+        .trigger('add.owl.carousel', createElementCard(index))
+        .trigger('refresh.owl.carousel');
+    counts[index]++;
+};
 
-    if (counts[index] < varCards[index].data.length) {
+const isAcceptGenerateNewCard = index => counts[index] < varCards[index].data.length;
 
-        $('#' + carrousel)
-            .trigger('to.owl.carousel', [-4, 2000])
-            .trigger('add.owl.carousel', createElementCard(index))
-            .trigger('refresh.owl.carousel');
-        counts[index]++;
+const generateNewCard = (carrousel, index) => {    
+    if (isAcceptGenerateNewCard(index)) {
+        addNewItemOwlCarousel(carrousel, index);        
     }
 }
 
 const generateInitialCards = (carrousel, index, numberCards) => {
     counts[index] = 0;
+    let position = -6;
 
-    for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {
-        let cardImage = '<img class="owl-lazy" data-src="'
-            + createCardYuGiOh(cardIndex, varCards[index])
-            + '" data-src-retina="'
-            + '" alt="">';
-
-        let linkButton = ' <a type="button" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-array-index="' + index + '" data-id="' + varCards[index].data[counts[index]].id + '" class="btn rounded-pill" id="button-more">VER MAIS...<img src="./img/olho-visualizar-2.png"></a>';
-
-        let cardElement = ['<div  class="item test-blue box-movie">' + cardImage + linkButton + '</div>']
-
-        $('#' + carrousel).trigger('add.owl.carousel', cardElement)
-            .trigger('refresh.owl.carousel')
-            .trigger('to.owl.carousel', [-4, 2000]);
-
-        counts[index]++;
+    for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {   
+        addNewItemOwlCarousel(carrousel, index, position);       
     }
 }
 
-const addEventChangeClass = (carousel, eventType, elementClass, oldClass, newClass) => {
+const addEventChangeClass = ( { carousel, eventType, elementClass, oldClass, newClass } ) => {
     carousel.on(eventType, elementClass, event => {
         event.preventDefault();
     
         let elementDiv = event.currentTarget;
         elementDiv.classList.replace(oldClass, newClass);
-    });
-    
+    });    
 }
