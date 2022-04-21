@@ -7,17 +7,17 @@ const eventClickNextButton = (carrousel, index, speed) => {
     });
 }
 
+const buttonRaceKeyIsValid = (key) => `${key}` !== "length" && `${key}` !== "prevObject";
+const buttonRaceIsActive = (buttonsRace, key) => buttonsRace[`${key}`].classList.contains("active");
+
 const removeButtonClassActive = (buttonsRace) => {
-    let isActive = false;
     let dropdownSpellOrTrap = $(".btn-group button");
 
     Object.entries(buttonsRace)
         .forEach(([key]) => {
 
-            if (`${key}` !== "length" && `${key}` !== "prevObject") {
-                isActive = buttonsRace[`${key}`].classList.contains("active");
-            
-                if (isActive) {                                                     
+            if (buttonRaceKeyIsValid(key)) {
+                if (buttonRaceIsActive(buttonsRace, key)) {                                                     
                     dropdownSpellOrTrap[0].classList.remove("active");
                     buttonsRace[`${key}`].classList.remove("active");                                                           
                 }                                                               
@@ -65,9 +65,9 @@ const createElementCard = (index) => {
     return cardElement;
 }
 
-const addNewItemOwlCarousel = (carrousel, index, position=-4) => {
+const addNewItemOwlCarousel = (carrousel, index, positionToMove=-4) => {
     $('#' + carrousel)
-        .trigger('to.owl.carousel', [position, SPEED_TRANSITION_IN_MILLISECONDS, true])
+        .trigger('to.owl.carousel', [positionToMove, SPEED_TRANSITION_IN_MILLISECONDS, true])
         .trigger('add.owl.carousel', createElementCard(index))
         .trigger('refresh.owl.carousel');
     counts[index]++;
@@ -83,10 +83,10 @@ const generateNewCard = (carrousel, index) => {
 
 const generateInitialCards = (carrousel, index, numberCards) => {
     counts[index] = 0;
-    let position = -6;
+    let positionToMove = -6;
 
     for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {   
-        addNewItemOwlCarousel(carrousel, index, position);       
+        addNewItemOwlCarousel(carrousel, index, positionToMove);       
     }
 }
 

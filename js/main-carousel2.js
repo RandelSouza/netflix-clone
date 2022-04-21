@@ -7,6 +7,10 @@ const buttonNextTwo = '<button id="next2" type="button" role="presentation" clas
 
 const getNumberItemsCarouselTwo = event => itemsCarouselTwo = event.item.count;
 
+let secondSpans = $("#second span");
+let secondRaces = $("#second .race");
+addButtonClassActive(secondSpans, secondRaces);
+
 addEventChangeClass({
     carousel: carousel2,
     eventType: 'mouseover',

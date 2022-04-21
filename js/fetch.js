@@ -46,7 +46,6 @@ async function requestYugiohCardByFname(name, language, callback) {
         .catch(error => console.log(error));
 }
 
-
 async function requestYugiohCardsByRace(race, index, language, callback) {
     await fetch(URL_YUGIOH + `?${language}race=${race}`, OPTIONS)
         .then(response => response.json()
