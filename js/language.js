@@ -187,7 +187,7 @@ const changePageTextToPortuguese = () => {
     // Modal gameplays
     $("#title-gameplays")[0].innerText = 'Gameplays de yu-gi-oh!';
 
-    $("#title-gameplays-1") [0].innerText = 'Vídeos de Gameplays de Jogos yu-gi-oh!';
+    $("#title-gameplays-1")[0].innerText = 'Vídeos de Gameplays de Jogos yu-gi-oh!';
 
     $("#gameplays-description-1")[0].innerText = 'YouTuber: Renan Sparrow | Jogo: Master Duel';
     $("#gameplays-description-2")[0].innerText = 'YouTuber: Fiaspo | Jogo: YU-GI-OH DUEL LINKS';

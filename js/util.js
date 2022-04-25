@@ -65,10 +65,10 @@ const createElementCard = (index) => {
     return cardElement;
 }
 
-const addNewItemOwlCarousel = (carrousel, index, positionToMove=-4) => {
-    $('#' + carrousel)
-        .trigger('to.owl.carousel', [positionToMove, SPEED_TRANSITION_IN_MILLISECONDS, true])
+const addNewItemOwlCarousel = (carrousel, index, positionToMove=-5) => {
+    $('#' + carrousel)       
         .trigger('add.owl.carousel', createElementCard(index))
+        .trigger('to.owl.carousel', [positionToMove, SPEED_TRANSITION_IN_MILLISECONDS, true])
         .trigger('refresh.owl.carousel');
     counts[index]++;
 };
@@ -83,7 +83,7 @@ const generateNewCard = (carrousel, index) => {
 
 const generateInitialCards = (carrousel, index, numberCards) => {
     counts[index] = 0;
-    let positionToMove = -6;
+    let positionToMove = -3;
 
     for (let cardIndex = 0; cardIndex < numberCards; cardIndex++) {   
         addNewItemOwlCarousel(carrousel, index, positionToMove);       

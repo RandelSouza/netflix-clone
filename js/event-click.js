@@ -105,21 +105,27 @@ $('#second .race').on('click', event => {
 });
 
 $("#language ul li a").on('click', (event) => {
+     let index = 0;
+     
     textLanguage = event.currentTarget.attributes[0].value;
     language = textLanguage != '' ? `language=${textLanguage}&` : '';
 
     requestRace(raceCarouselOne, 0, language, () => {
+       
         $('#carousel').trigger('replace.owl.carousel', () => { })
         .trigger('to.owl.carousel', [-1, 2000]);
 
         ["carousel"].forEach((carrousel, index) => generateInitialCards(carrousel, index, itemsCarouselOne));
+
+        $('#carousel').trigger('refresh.owl.carousel');
     });
 
     requestRace(raceCarouselTwo, 1, language, () => {
         $('#carousel2').trigger('replace.owl.carousel', () => { })
         .trigger('to.owl.carousel', [-1, 2000]);
 
-        ["carousel2"].forEach((carrousel, index = 1) => generateInitialCards(carrousel, index = 1, itemsCarouselTwo));
+        ["carousel2"].forEach((carrousel, index = 1) => generateInitialCards(carrousel, index=1, itemsCarouselTwo));
+        $('#carousel').trigger('refresh.owl.carousel');
     });  
     
     if(textLanguage === 'pt'){
