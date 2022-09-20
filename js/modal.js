@@ -21,7 +21,7 @@ exampleModal.addEventListener('show.bs.modal', (event) => {
         let cardLevel = exampleModal.querySelector('#card-level');
         let cardAttribute = exampleModal.querySelector('#card-attribute');
 
-        img.src = '../img/card-backward.png';
+        img.src = './img/card-backward.png';
         idCardInput.value = '';
         messageText.value = '';
         cardAttack.value = '';

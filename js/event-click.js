@@ -68,7 +68,6 @@ $("#btn-search").on('click', () => {
         tcgPlayerPrice.value = tcgPlayer !== "0,00" ? '$ ' + tcgPlayer : ' ━ ';
 
     });
-
     
 });
 
@@ -105,7 +104,7 @@ $('#second .race').on('click', event => {
 });
 
 $("#language ul li a").on('click', (event) => {
-     let index = 0;
+    let index = 0;
      
     textLanguage = event.currentTarget.attributes[0].value;
     language = textLanguage != '' ? `language=${textLanguage}&` : '';
