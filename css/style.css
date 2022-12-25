@@ -55,7 +55,7 @@ header nav ul li a:hover {
     font-size      : 16px;
     background     : linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50) 100%), url("../img/yu-gi-oh-logo-2.jpg") no-repeat;
     height         : 400px;
-    background-size: cover;
+    background-size: 90% ;
     display        : flex;
     flex-direction : column;
     justify-content: center;
@@ -63,15 +63,15 @@ header nav ul li a:hover {
 }
 
 .main-movie .description {
-    margin-bottom: 40px;
-    margin-top   : 10px;
-    font-weight  : bolder;
+    margin-bottom : 40px;
+    margin-top    : 10px;
+    font-weight   : bolder;
 }
 
 .title {
-    font-size  : 40px;
-    font-family: 'Trebuchet MS', Arial, sans-serif;
-    margin-top : 15%;
+    font-size   : 40px;
+    font-family : 'Trebuchet MS', Arial, sans-serif;
+    margin-top  : 15%;
 }
 
 .btn {
@@ -108,8 +108,6 @@ header nav ul li a:hover {
 }
 
 .container-yugioh {
-    /* margin-left: 30px; */
-    /* margin-right: 15px; */
     margin-left: 20px;
 }
 
@@ -178,13 +176,6 @@ h2.info-corousel {
     background-color: rgba(24, 23, 23, 0.788);
 }
 
-.test-red:hover {
-    border    : 5px solid rgba(70, 67, 67, 0.883);
-    transform : scale(1);
-    opacity   : 0.85;
-    transition: opacity 1ms ease-in-out;
-
-}
 
 .dois {
     line-height     : 0;
@@ -194,10 +185,6 @@ h2.info-corousel {
     border          : 50px solid;
     border-color    : #f00 #0f0 #0f0 #fc0;
     background-color: #dba4a4;
-}
-
-.test-blue {
-    border: 1px solid rgb(23, 23, 24);
 }
 
 
@@ -336,3 +323,9 @@ footer .btn {
     margin-right: 0px;
     width: 48%;
 }
+
+#next1, #prev1, #next2, #prev2{
+  background-color: #00000000;
+   
+}
+

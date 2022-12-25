@@ -59,7 +59,7 @@ const createElementCard = (index) => {
     let dataSourceImg = 'data-src="'+ createCardYuGiOh(counts[index], varCards[index]) + '"';
     let imgBoxMovie = '<img '+classImgBoxMovie+' '+dataSourceImg+' alt="">';
 
-    cardElementClass = 'class="test-blue item box-movie animate__animated animate__flipInY"';
+    let cardElementClass = 'class="test-blue item box-movie animate__animated animate__flipInY"';
     let cardElement = ['<div '+cardElementClass+'> '+imgBoxMovie+' '+buttonSeeMore+'</div>'];
 
     return cardElement;
