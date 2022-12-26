@@ -34,6 +34,7 @@ window.onload = () => {
 
 let firstSpans = $("#first span");
 let firstRaces = $("#first .race");
+
 addButtonClassActive(firstSpans, firstRaces);
 
 addEventChangeClass({

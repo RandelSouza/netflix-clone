@@ -55,7 +55,7 @@ header nav ul li a:hover {
     font-size      : 16px;
     background     : linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50) 100%), url("../img/yu-gi-oh-logo-2.jpg") no-repeat;
     height         : 400px;
-    background-size: cover;
+    background-size: 90%;
     display        : flex;
     flex-direction : column;
     justify-content: center;
@@ -196,10 +196,6 @@ h2.info-corousel {
     background-color: #dba4a4;
 }
 
-.test-blue {
-    border: 1px solid rgb(23, 23, 24);
-}
-
 
 .item a {
     display        : none;
@@ -336,3 +332,10 @@ footer .btn {
     margin-right: 0px;
     width: 48%;
 }
+
+#next1, #prev1, #next2, #prev2{
+    background-color: #00000000;
+     
+  }
+  
+  
