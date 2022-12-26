@@ -19,7 +19,7 @@ const removeButtonClassActive = (buttonsRace) => {
             if (buttonRaceKeyIsValid(key)) {
                 if (buttonRaceIsActive(buttonsRace, key)) {                                                     
                     dropdownSpellOrTrap[0].classList.remove("active");
-                    buttonsRace[`${key}`].classList.remove("active");                                                           
+                    buttonsRace[`${key}`].classList.remove("active");                                                                          
                 }                                                               
             }
         }
@@ -44,6 +44,7 @@ const addButtonClassActive = (elementSpans, elementButtons) => {
         }
 
         button.classList.add("active");
+        
     });
 }
 

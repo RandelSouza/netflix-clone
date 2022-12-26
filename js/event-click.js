@@ -71,14 +71,6 @@ $("#btn-search").on('click', () => {
     
 });
 
-$("#second span").click((event) => {
-    let button = event.currentTarget;
-    let buttonsRace = $("#second .race");
-
-    removeButtonClassActive(buttonsRace);
-    button.classList.add("active");
-});
-
 $('#first .race').on('click', event => {
     let button = event.currentTarget;
     let race = button.getAttribute('data-race');
