@@ -1,6 +1,8 @@
-# Yu-Gi-Oh! Cards [Hora do Duelo!](https://randelsouza.github.io/netflix-clone/index.html)
+# Yu-Gi-Oh! lista de Cartas! [Hora do Duelo!](https://randelsouza.github.io/netflix-clone/index.html)
 
 Este é um projeto que oferece uma maneira bonita e organizada de explorar o vasto mundo das cartas do Yu-Gi-Oh! Aqui, você pode encontrar uma extensa lista de cartas categorizadas, além de vídeos de gameplay para expandir sua experiência.
+
+![Functionalities](https://github.com/RandelSouza/netflix-clone/blob/main/img/yu-gi-oh.png)
 
 ## Funcionalidades
 
@@ -21,7 +23,7 @@ Este é um projeto que oferece uma maneira bonita e organizada de explorar o vas
 Este projeto está em constante evolução e aceita contribuições. Se você tem alguma sugestão de melhoria, correção de bugs ou novas funcionalidades, sinta-se à vontade para contribuir.
 
 ## Tecnologias Utilizadas
-
+- [API YGOPRODECK](https://ygoprodeck.com/api-guide/)
 - HTML
 - CSS
 - JavaScript
