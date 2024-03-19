@@ -35,7 +35,7 @@ Este projeto foi desenvolvido por Randel Almeida como parte do projeto da DIO cl
 
 ## Licença
 
-Este projeto é licenciado sob a [Inserir tipo de licença]. Veja o arquivo [LICENSE](link para o arquivo LICENSE) para mais detalhes.
+Este projeto é licenciado sob a MIT License. Veja o arquivo [MIT LICENSE](https://github.com/RandelSouza/netflix-clone/blob/main/MIT_License.txt) para mais detalhes.
 
 ---
 
